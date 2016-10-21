@@ -45,6 +45,12 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GCA.Business">
+      <HintPath>..\..\ControlManagement\GCA.Business\bin\Debug\GCA.Business.dll</HintPath>
+    </Reference>
+    <Reference Include="GCA.Domain">
+      <HintPath>..\..\ControlManagement\GCA.Domain\obj\Debug\GCA.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
