@@ -10,7 +10,7 @@
             <asp:Label ID="lblID" runat="server" Text="ID:" 
                 CssClass="control-label col-sm-2" AssociatedControlID="txtID"></asp:Label>
             <div class="col-sm-10">
-                <asp:TextBox ID="txtID" TextMode="Number" runat="server"
+                <asp:TextBox ID="txtID" runat="server"
                     CssClass="form-control"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rfvID" runat="server" 
                     ErrorMessage="Ingrese el ID" ControlToValidate="txtID"
