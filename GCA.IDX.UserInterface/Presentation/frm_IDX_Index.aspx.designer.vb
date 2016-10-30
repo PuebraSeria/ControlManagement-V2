@@ -23,31 +23,31 @@ Partial Public Class frm_IDX_Index
     Protected WithEvents formLogin As Global.System.Web.UI.HtmlControls.HtmlForm
     
     '''<summary>
-    '''lblID control.
+    '''lblCodigo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblID As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblCodigo As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txtID control.
+    '''txtCodigo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtID As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''rfvID control.
+    '''txtCodigoVacio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents rfvID As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    Protected WithEvents txtCodigoVacio As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
     '''lblContrasenna control.

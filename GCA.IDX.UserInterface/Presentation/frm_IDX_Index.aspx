@@ -7,13 +7,13 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <form id="formLogin" class="form-horizontal" runat="server" style="margin-left: 29%;">
         <div class="form-group">
-            <asp:Label ID="lblID" runat="server" Text="ID:" 
-                CssClass="control-label col-sm-2" AssociatedControlID="txtID"></asp:Label>
+            <asp:Label ID="lblCodigo" runat="server" Text="Código:" 
+                CssClass="control-label col-sm-2" AssociatedControlID="txtCodigo"></asp:Label>
             <div class="col-sm-10">
-                <asp:TextBox ID="txtID" runat="server"
+                <asp:TextBox ID="txtCodigo" runat="server"
                     CssClass="form-control"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="rfvID" runat="server" 
-                    ErrorMessage="Ingrese el ID" ControlToValidate="txtID"
+                <asp:RequiredFieldValidator ID="txtCodigoVacio" runat="server" 
+                    ErrorMessage="Ingrese su codigo" ControlToValidate="txtCodigo"
                     Display="Dynamic" CssClass="alert alert-danger"></asp:RequiredFieldValidator>
             </div>
         </div>

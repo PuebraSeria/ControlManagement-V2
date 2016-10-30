@@ -142,10 +142,14 @@
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
+    <Content Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx" />
+    <Content Include="Presentation\frm_SPV_AdministrarSupervisor.aspx" />
     <Content Include="Presentation\frm_SPV_AsignarControl.aspx" />
     <Content Include="Presentation\frm_SPV_ConEstadoDeControles.aspx" />
     <Content Include="Presentation\frm_SPV_ConGenerarReporte.aspx" />
     <Content Include="Presentation\frm_SPV_CrearControl.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearJefeOficina.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearSupervisor.aspx" />
     <Content Include="Presentation\frm_SPV_EditarControl.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -181,6 +185,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarJefeOficina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarJefeOficina.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarSupervisor.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarSupervisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarSupervisor.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarSupervisor.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\frm_SPV_AsignarControl.aspx.designer.vb">
       <DependentUpon>frm_SPV_AsignarControl.aspx</DependentUpon>
     </Compile>
@@ -207,6 +225,20 @@
     </Compile>
     <Compile Include="Presentation\frm_SPV_CrearControl.aspx.vb">
       <DependentUpon>frm_SPV_CrearControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearJefeOficina.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearJefeOficina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearJefeOficina.aspx.vb">
+      <DependentUpon>frm_SPV_CrearJefeOficina.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearSupervisor.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearSupervisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearSupervisor.aspx.vb">
+      <DependentUpon>frm_SPV_CrearSupervisor.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\frm_SPV_EditarControl.aspx.designer.vb">
