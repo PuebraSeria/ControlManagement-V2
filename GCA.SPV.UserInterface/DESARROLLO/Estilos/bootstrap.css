@@ -185,7 +185,7 @@ table {
 }
 td,
 th {
-  padding: 0;
+  padding: 10px;
 }
 @media print {
   * {

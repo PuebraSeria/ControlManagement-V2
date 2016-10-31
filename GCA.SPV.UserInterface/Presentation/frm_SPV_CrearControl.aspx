@@ -1,5 +1,9 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_CrearControl.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_CrearControl" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+              <script src="../DESARROLLO/JS/jquery-1.12.4.js"></script>
+               <script src="../DESARROLLO/JS/jquery-ui.js"></script>
+             <link rel="stylesheet" href="../DESARROLLO/Estilos/jquery-ui.css"/>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
@@ -18,6 +22,18 @@
                 <li>
                     <a href="frm_SPV_EditarControl.aspx"><i class="fa fa-qrcode "></i>Editar control</a>
                 </li>
+                 <li>
+                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
+                </li>
                 <li>
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
                 </li>
@@ -34,69 +50,72 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Crear Control</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-xs-3" for="txtCodigo">Código:</label>
-            <div class="col-xs-9">
-                <asp:TextBox ID="txtCodigo" TextMode="Number" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-3" for="txtNombreControl">Nombre:</label>
-            <div class="col-xs-9">
-                <asp:TextBox ID="txtNombreControl" TextMode="SingleLine" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="col-md-12">
-            <h3>Períodicidad</h3>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-3" for="ddlPeriodicidad">Días/Anual/Mensual:</label>
-            <div class="col-xs-9">
-                <asp:DropDownList ID="ddlPeriodicidad" runat="server">
-                    <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                    <asp:ListItem>Diario</asp:ListItem>
-                    <asp:ListItem>Semanal</asp:ListItem>
-                    <asp:ListItem>Mensual</asp:ListItem>
-                    <asp:ListItem>Anual</asp:ListItem>
-                </asp:DropDownList>
-            </div>
-        </div>
-        <div class="form-group" style="padding-top: 4%;">
-            <label class="control-label col-xs-3">F. Inicial:</label>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Dia</option>
-                </select>
-            </div>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Mes</option>
-                </select>
-            </div>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Año</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-xs-3">F. Final:</label>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Dia</option>
-                </select>
-            </div>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Mes</option>
-                </select>
-            </div>
-            <div class="col-xs-3">
-                <select class="form-control">
-                    <option>Año</option>
-                </select>
-            </div>
-        </div>
-    </form>
+   <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <br />
+                                <asp:Label ForeColor="Red"  ID="lblMensaje" runat="server" Text=""></asp:Label><br />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <asp:Label runat="server" Text="Código:"></asp:Label>
+                                <br />
+                                <asp:TextBox ID="txtCodigo" runat="server" Height="27px" Width="485px"></asp:TextBox><br />
+                                <asp:RequiredFieldValidator ID="codigoVacio" runat="server" 
+                                    ControlToValidate="txtCodigo" Display="Dynamic" Text="Este campo es obligatorio." ForeColor="Red">
+                                </asp:RequiredFieldValidator>
+                                <br />
+                            </td>
+                        </tr>
+                       <tr>
+                             <td>
+                                <asp:Label runat="server" Text="Nombre:"></asp:Label>
+                                <br />
+                                 <asp:TextBox ID="txtNombre" runat="server" Height="27px" Width="485px"></asp:TextBox><br />
+                                <asp:RequiredFieldValidator ID="nombreVacio" runat="server" 
+                                    ControlToValidate="txtNombre" Display="Dynamic" Text="Este campo es obligatorio." ForeColor="Red">
+                                </asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="txtNombreEx" runat="server" ErrorMessage="Solo se permiten letras."
+                                    ControlToValidate="txtNombre" ValidationExpression="^[a-zA-Z\s]*$" ForeColor="Red" Display="Dynamic">
+                                </asp:RegularExpressionValidator>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Label runat="server" Text="Periocidad:"></asp:Label>
+                                <br />
+                                <asp:DropDownList ID="ddlPeriocidad" runat="server"></asp:DropDownList>
+                                <br />
+                            </td>
+                        </tr>
+                          <tr>
+                            <td>
+                                <asp:Label runat="server" Text="Fecha de inicio:"></asp:Label>
+                                <br />
+                                <asp:TextBox ID="txtFechaI" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
+                                <br />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <asp:Label runat="server" Text="Fecha final:"></asp:Label>
+                                <br />
+                                 <asp:TextBox ID="txtFechaF" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:Button ID="btnAccept" runat="server"  OnClick="btnAccept_Click"  Text ="Crear" Height="49px" Width="485px" />
+                           </td>
+                        </tr>
+                    </table>
+              <script>
+                  $(function () {
+                $( "#<%= txtFechaI.ClientID %>" ).datepicker();
+               $( "#<%= txtFechaF.ClientID %>" ).datepicker();
+              } );
+              </script>
 </asp:Content>

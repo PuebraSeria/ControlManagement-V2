@@ -14,29 +14,29 @@ Option Explicit On
 Partial Public Class frm_SPV_AdministrarJefeOficina
     
     '''<summary>
-    '''txtCodigo control.
+    '''GridJefeOficina control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents GridJefeOficina As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''txtNombreControl control.
+    '''dataJefe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNombreControl As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents dataJefe As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''ddlPeriodicidad control.
+    '''dataOficina control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlPeriodicidad As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents dataOficina As Global.System.Web.UI.WebControls.SqlDataSource
 End Class

@@ -132,6 +132,7 @@
     <Content Include="DESARROLLO\Estilos\bootstrap.css" />
     <Content Include="DESARROLLO\Estilos\custom.css" />
     <Content Include="DESARROLLO\Estilos\font-awesome.css" />
+    <Content Include="DESARROLLO\Estilos\jquery-ui.css" />
     <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.svg" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.svg" />
     <Content Include="DESARROLLO\Graficos\graficoEstadoControles.js" />
@@ -142,6 +143,7 @@
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
+    <Content Include="Presentation\frm_SPV_AdministrarControl.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarSupervisor.aspx" />
     <Content Include="Presentation\frm_SPV_AsignarControl.aspx" />
@@ -153,6 +155,8 @@
     <Content Include="Presentation\frm_SPV_EditarControl.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="DESARROLLO\JS\jquery-1.12.4.js" />
+    <Content Include="DESARROLLO\JS\jquery-ui.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +188,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarControl.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarControl.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarControl.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx.designer.vb">
       <DependentUpon>frm_SPV_AdministrarJefeOficina.aspx</DependentUpon>

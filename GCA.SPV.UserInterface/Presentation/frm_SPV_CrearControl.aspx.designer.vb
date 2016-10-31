@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class frm_SPV_CrearControl
     
     '''<summary>
+    '''lblMensaje control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''txtCodigo control.
     '''</summary>
     '''<remarks>
@@ -23,20 +32,74 @@ Partial Public Class frm_SPV_CrearControl
     Protected WithEvents txtCodigo As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''txtNombreControl control.
+    '''codigoVacio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNombreControl As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents codigoVacio As Global.System.Web.UI.WebControls.RequiredFieldValidator
     
     '''<summary>
-    '''ddlPeriodicidad control.
+    '''txtNombre control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlPeriodicidad As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtNombre As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''nombreVacio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents nombreVacio As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
+    '''<summary>
+    '''txtNombreEx control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtNombreEx As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    
+    '''<summary>
+    '''ddlPeriocidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlPeriocidad As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''txtFechaI control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaI As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''txtFechaF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFechaF As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''btnAccept control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAccept As Global.System.Web.UI.WebControls.Button
 End Class

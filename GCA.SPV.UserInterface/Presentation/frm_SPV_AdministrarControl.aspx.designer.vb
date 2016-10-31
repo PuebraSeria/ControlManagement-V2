@@ -11,23 +11,23 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class frm_SPV_AdministrarSupervisor
+Partial Public Class frm_SPV_AdministrarControl
     
     '''<summary>
-    '''gridSupervisor control.
+    '''gridControl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents gridSupervisor As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gridControl As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''dataSupervisor control.
+    '''dataControl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents dataSupervisor As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents dataControl As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
