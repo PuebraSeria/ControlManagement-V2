@@ -16,7 +16,7 @@
                     <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
                 <li>
-                    <a href="frm_SPV_EditarControl.aspx"><i class="fa fa-qrcode "></i>Editar control</a>
+                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Administrar control</a>
                 </li>
                  <li>
                     <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
@@ -46,7 +46,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Crear Control</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="gridSupervisor" runat="server"   HorizontalAlign="Center" BackColor  ="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="5" AllowSorting="True" AutoGenerateColumns="False" CellSpacing="5" DataKeyNames="TC_Codigo_Supervisor" DataSourceID="dataSupervisor">
+    <asp:GridView ID="gridSupervisor" ShowHeaderWhenEmpty ="true"  runat="server"   HorizontalAlign="Center" BackColor  ="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="5" AllowSorting="True" AutoGenerateColumns="False" CellSpacing="5" DataKeyNames="TC_Codigo_Supervisor" DataSourceID="dataSupervisor">
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:TemplateField HeaderText="Código" SortExpression="TC_Codigo_Supervisor">

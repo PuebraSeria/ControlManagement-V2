@@ -152,7 +152,6 @@
     <Content Include="Presentation\frm_SPV_CrearControl.aspx" />
     <Content Include="Presentation\frm_SPV_CrearJefeOficina.aspx" />
     <Content Include="Presentation\frm_SPV_CrearSupervisor.aspx" />
-    <Content Include="Presentation\frm_SPV_EditarControl.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="DESARROLLO\JS\jquery-1.12.4.js" />
@@ -250,13 +249,6 @@
     </Compile>
     <Compile Include="Presentation\frm_SPV_CrearSupervisor.aspx.vb">
       <DependentUpon>frm_SPV_CrearSupervisor.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Presentation\frm_SPV_EditarControl.aspx.designer.vb">
-      <DependentUpon>frm_SPV_EditarControl.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\frm_SPV_EditarControl.aspx.vb">
-      <DependentUpon>frm_SPV_EditarControl.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>

@@ -11,8 +11,8 @@ Public Class frm_SPV_CrearJefeOficina
             Dim oficina As New OficinaBusiness(conn)
             Dim dsResult As DataSet = oficina.obtenerOficinas()
             ddlOficina.DataSource = dsResult
-            ddlOficina.DataTextField = "TC_Codigo_Oficina"
-            ddlOficina.DataValueField = "TC_Nombre_Oficina"
+            ddlOficina.DataTextField = "TC_Nombre_Oficina"
+            ddlOficina.DataValueField = "TC_Codigo_Oficina"
             ddlOficina.DataBind()
         End If
 
