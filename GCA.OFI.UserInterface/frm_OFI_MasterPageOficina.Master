@@ -55,13 +55,7 @@
                 <hr />
                 <div class="row">
                     <div class="col-lg-12 ">
-                        <form id="form2" runat="server">
-                            <div>
-                                <asp:ContentPlaceHolder ID="Body" runat="server">
-                                </asp:ContentPlaceHolder>
-                            </div>
-                        </form>
-
+                        <asp:ContentPlaceHolder ID="Body" runat="server"></asp:ContentPlaceHolder>
                     </div>
                     <!-- /. PAGE INNER  -->
                 </div>
