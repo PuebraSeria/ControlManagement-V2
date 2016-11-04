@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class frm_SPV_CrearControl
     
     '''<summary>
+    '''tableA control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents tableA As Global.System.Web.UI.HtmlControls.HtmlTable
+    
+    '''<summary>
     '''lblMensaje control.
     '''</summary>
     '''<remarks>

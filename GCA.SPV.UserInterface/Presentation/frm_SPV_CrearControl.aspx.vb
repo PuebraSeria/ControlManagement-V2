@@ -4,7 +4,8 @@ Imports GCA.Domain
 
 Public Class frm_SPV_CrearControl
     Inherits System.Web.UI.Page
-
+    Public check As CheckBox
+    Public label As Label 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
@@ -14,6 +15,20 @@ Public Class frm_SPV_CrearControl
             ddlPeriocidad.DataTextField = "TC_Nombre_Periodo"
             ddlPeriocidad.DataValueField = "TN_Id_Periodo"
             ddlPeriocidad.DataBind()
+            'check = New CheckBox()
+            'label = New Label()
+            'label.Text = "Control de controles de administracion de controles por que son controles"
+            'check.Checked = True
+            'Dim t As New HtmlTableRow()
+            'Dim c As New HtmlTableCell()
+            'Dim c1 As New HtmlTableCell()
+
+            'c.Controls.Add(check)
+            'c1.Controls.Add(label)
+            't.Cells.Add(c1)
+            't.Cells.Add(c)
+            'tableA.Rows.Add(t)
+
         End If
 
         Dim cookie As HttpCookie = Request.Cookies("mensaje")

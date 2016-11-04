@@ -50,7 +50,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Crear Control</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-   <table style="width: 100%;">
+   <table style="width: 100%;" id="tableA" runat ="server"  >
                         <tr>
                             <td>
                                 <br />
@@ -72,7 +72,7 @@
                              <td>
                                 <asp:Label runat="server" Text="Nombre:"></asp:Label>
                                 <br />
-                                 <asp:TextBox ID="txtNombre" runat="server" Height="27px" Width="485px"></asp:TextBox><br />
+                                 <asp:TextBox ID="txtNombre" runat="server" Height="27px" Width="485px" ></asp:TextBox><br />
                                 <asp:RequiredFieldValidator ID="nombreVacio" runat="server" 
                                     ControlToValidate="txtNombre" Display="Dynamic" Text="Este campo es obligatorio." ForeColor="Red">
                                 </asp:RequiredFieldValidator>

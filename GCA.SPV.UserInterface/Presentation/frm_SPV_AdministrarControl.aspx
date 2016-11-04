@@ -50,12 +50,27 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Controles</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="gridControl"  ShowHeaderWhenEmpty ="true"   runat="server" DataSourceID="dataControl" HorizontalAlign="Center" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="TC_Codigo_DocControl">
+    <asp:GridView ID="gridControl"  ShowHeaderWhenEmpty ="True"   runat="server"  HorizontalAlign="Center" 
+        AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
+        DataKeyNames="TC_Codigo_DocControl"
+        OnRowDeleting ="gridControl_RowDeleting" OnRowCancelingEdit ="gridControl_RowCancelingEdit"   OnPageIndexChanging ="gridControl_PageIndexChanging" OnRowUpdating="gridControl_RowUpdating"
+        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound"   >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_DocControl" HeaderText="Codigo" ReadOnly="True" SortExpression="TC_Codigo_DocControl" />
             <asp:BoundField DataField="TC_Nombre_DocControl" HeaderText="Nombre" SortExpression="TC_Nombre_DocControl" />
             <asp:BoundField DataField="TN_Periocidad_DocControl" HeaderText="Periocidad" SortExpression="TN_Periocidad_DocControl" />
+             <asp:TemplateField HeaderText="Periocidad" SortExpression="TC_Nombre_Periodo">
+                 <EditItemTemplate>
+                     <asp:DropDownList ID="ddlPeriodo" runat="server"  >
+
+                     </asp:DropDownList>
+                     <asp:Label ID="labelPeriodo" runat="server" Text='<%# Bind("TN_Periocidad_DocControl") %>' Visible ="false" ></asp:Label>
+                 </EditItemTemplate>
+                 <ItemTemplate>
+                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("TC_Nombre_Periodo") %>'></asp:Label>
+                 </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Fecha de Inicio" SortExpression="TF_FechaInicio_DocControl">
                 <EditItemTemplate>
                     <asp:TextBox ID="txtFechaI" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl") %>' ReadOnly="true"></asp:TextBox>
@@ -83,17 +98,10 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-    <asp:SqlDataSource ID="dataControl" runat="server" ConnectionString="<%$ ConnectionStrings:GCAConnectionString %>" DeleteCommand="DELETE FROM [TDocControl] WHERE [TC_Codigo_DocControl] = @TC_Codigo_DocControl" InsertCommand="INSERT INTO [TDocControl] ([TC_Codigo_DocControl], [TC_Nombre_DocControl], [TN_Periocidad_DocControl], [TF_FechaInicio_DocControl], [TF_FechaFinal_DocControl]) VALUES (@TC_Codigo_DocControl, @TC_Nombre_DocControl, @TN_Periocidad_DocControl, @TF_FechaInicio_DocControl, @TF_FechaFinal_DocControl)" SelectCommand="SELECT * FROM [TDocControl]" UpdateCommand="UPDATE [TDocControl] SET [TC_Nombre_DocControl] = @TC_Nombre_DocControl, [TN_Periocidad_DocControl] = @TN_Periocidad_DocControl, [TF_FechaInicio_DocControl] = @TF_FechaInicio_DocControl, [TF_FechaFinal_DocControl] = @TF_FechaFinal_DocControl WHERE [TC_Codigo_DocControl] = @TC_Codigo_DocControl">
+    <asp:SqlDataSource ID="dataControl" runat="server"  >
         <DeleteParameters>
             <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
         </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
-            <asp:Parameter Name="TC_Nombre_DocControl" Type="String" />
-            <asp:Parameter Name="TN_Periocidad_DocControl" Type="Int32" />
-            <asp:Parameter Name="TF_FechaInicio_DocControl" Type="DateTime" />
-            <asp:Parameter Name="TF_FechaFinal_DocControl" Type="DateTime" />
-        </InsertParameters>
         <UpdateParameters>
             <asp:Parameter Name="TC_Nombre_DocControl" Type="String" />
             <asp:Parameter Name="TN_Periocidad_DocControl" Type="Int32" />
