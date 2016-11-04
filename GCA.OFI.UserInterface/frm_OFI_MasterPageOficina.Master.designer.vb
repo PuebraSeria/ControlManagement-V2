@@ -41,15 +41,6 @@ Partial Public Class frm_OFI_MasterPageOficina
     Protected WithEvents titulo As Global.System.Web.UI.WebControls.ContentPlaceHolder
     
     '''<summary>
-    '''form2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents form2 As Global.System.Web.UI.HtmlControls.HtmlForm
-    
-    '''<summary>
     '''Body control.
     '''</summary>
     '''<remarks>
