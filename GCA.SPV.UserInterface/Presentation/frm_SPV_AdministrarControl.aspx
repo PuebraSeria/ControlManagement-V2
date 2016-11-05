@@ -98,18 +98,6 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-    <asp:SqlDataSource ID="dataControl" runat="server"  >
-        <DeleteParameters>
-            <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="TC_Nombre_DocControl" Type="String" />
-            <asp:Parameter Name="TN_Periocidad_DocControl" Type="Int32" />
-            <asp:Parameter Name="TF_FechaInicio_DocControl" Type="DateTime" />
-            <asp:Parameter Name="TF_FechaFinal_DocControl" Type="DateTime" />
-            <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
               <script>
                   $(function () {
                       $("input[type=text][id*=txtFechaI]").datepicker();

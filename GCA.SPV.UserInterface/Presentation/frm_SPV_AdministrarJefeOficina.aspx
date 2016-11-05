@@ -47,7 +47,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Jefes de Oficina</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="GridJefeOficina"  ShowHeaderWhenEmpty ="true"  runat ="server" AllowSorting="True" HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="5" DataKeyNames="TC_Codigo_JefeOficina" DataSourceID="dataJefe" CellSpacing="5">
+    <asp:GridView ID="gridJefeOficina"  ShowHeaderWhenEmpty ="true"  runat ="server"
+         HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
+         CellPadding="5" DataKeyNames="TC_Codigo_JefeOficina" CellSpacing="5"
+        OnRowCancelingEdit ="gridControl_RowCancelingEdit"  OnRowDeleting ="gridControl_RowDeleting" OnRowEditing ="gridControl_RowEditing" OnRowUpdating ="gridControl_RowUpdating" 
+        OnRowDataBound ="gridControl_RowDataBound" >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_JefeOficina" HeaderText="Código" ReadOnly="True" SortExpression="TC_Codigo_JefeOficina" />
@@ -60,8 +64,10 @@
             <asp:BoundField DataField="TC_CodOficina_JefeOficina" HeaderText="Oficina" SortExpression="TC_CodOficina_JefeOficina" Visible="False" />
             <asp:TemplateField HeaderText="Oficina" SortExpression="TC_Nombre_Oficina">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="ddlOficina" runat="server" DataSourceID="dataOficina" DataTextField="TC_Nombre_Oficina" DataValueField="TC_Codigo_Oficina" SelectedValue='<%# Bind("TC_CodOficina_JefeOficina") %>'>
+                    <asp:DropDownList ID="ddlOficina" runat="server" DataTextField="TC_Nombre_Oficina" DataValueField="TC_Codigo_Oficina">
+
                     </asp:DropDownList>
+                     <asp:Label ID="lblOficina" runat="server" Text='<%# Bind("TC_CodOficina_JefeOficina") %>' Visible ="True"></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("TC_Nombre_Oficina") %>'></asp:Label>
@@ -78,34 +84,5 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-    <asp:SqlDataSource ID="dataJefe" runat="server" ConnectionString="<%$ ConnectionStrings:GCAConnectionString %>" 
-        DeleteCommand="DELETE FROM [TJefeOficina] WHERE [TC_Codigo_JefeOficina] = @TC_Codigo_JefeOficina" 
-        InsertCommand="INSERT INTO [TJefeOficina] ([TC_Codigo_JefeOficina], [TC_DNI_JefeOficina], [TC_Contrasenna_JefeOficina], [TC_PrimerApellido_JefeOficina], [TC_Nombre_JefeOficina], [TC_SegundoApellido_JefeOficina], [TC_Email_JefeOficina], [TC_CodOficina_JefeOficina]) VALUES (@TC_Codigo_JefeOficina, @TC_DNI_JefeOficina, @TC_Contrasenna_JefeOficina, @TC_PrimerApellido_JefeOficina, @TC_Nombre_JefeOficina, @TC_SegundoApellido_JefeOficina, @TC_Email_JefeOficina, @TC_CodOficina_JefeOficina)"
-         SelectCommand="SELECT [TC_Codigo_JefeOficina], [TC_DNI_JefeOficina], [TC_Contrasenna_JefeOficina], [TC_PrimerApellido_JefeOficina], [TC_Nombre_JefeOficina], [TC_SegundoApellido_JefeOficina], [TC_Email_JefeOficina], [TC_Nombre_Oficina],[TC_CodOficina_JefeOficina] FROM [TJefeOficina] INNER JOIN  [TOficina] ON [TC_CodOficina_JefeOficina] =  [TC_Codigo_Oficina] " 
-        UpdateCommand="UPDATE [TJefeOficina] SET [TC_DNI_JefeOficina] = @TC_DNI_JefeOficina, [TC_Contrasenna_JefeOficina] = @TC_Contrasenna_JefeOficina, [TC_PrimerApellido_JefeOficina] = @TC_PrimerApellido_JefeOficina, [TC_Nombre_JefeOficina] = @TC_Nombre_JefeOficina, [TC_SegundoApellido_JefeOficina] = @TC_SegundoApellido_JefeOficina, [TC_Email_JefeOficina] = @TC_Email_JefeOficina, [TC_CodOficina_JefeOficina] = @TC_CodOficina_JefeOficina WHERE [TC_Codigo_JefeOficina] = @TC_Codigo_JefeOficina">
-        <DeleteParameters>
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_DNI_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Contrasenna_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_PrimerApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Nombre_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_SegundoApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Email_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_CodOficina_JefeOficina" Type="String" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="TC_DNI_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Contrasenna_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_PrimerApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Nombre_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_SegundoApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Email_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_CodOficina_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
-    <asp:SqlDataSource ID="dataOficina" runat="server" ConnectionString="<%$ ConnectionStrings:GCAConnectionString %>" SelectCommand="SELECT * FROM [TOficina]"></asp:SqlDataSource>
+    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
 </asp:Content>

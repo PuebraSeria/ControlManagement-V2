@@ -21,13 +21,4 @@ Partial Public Class frm_SPV_AdministrarControl
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gridControl As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
-    '''dataControl control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dataControl As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
