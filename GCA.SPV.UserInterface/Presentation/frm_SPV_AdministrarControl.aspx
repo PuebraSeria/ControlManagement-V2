@@ -9,30 +9,42 @@
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
+           <ul class="nav" id="main-menu">
                 <li>
                     <a href="frm_SPV_ConEstadoDeControles.aspx"><i class="fa fa-desktop"></i>Estado de los controles</a>
                 </li>
-                <li>
+                <li >
                     <a href="frm_SPV_CrearControl.aspx"><i class="fa fa-table "></i>Crear control</a>
                 </li>
-                <li>
+                <li class="active-link">
+                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Gestionar Controles</a>
+                </li>
+                 <li>
                     <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
-                <li class="active-link">
-                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Administrar control</a>
+                 <li>
+                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-table "></i>Crear Jefe de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
-                </li>
-                 <li >
-                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
+                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Jefes de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
+                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-table "></i>Crear Supervisor</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
+                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-qrcode "></i>Gestionar Supervisores</a>
+                </li>
+                  <li>
+                    <a href="frm_SPV_CrearOficina.aspx"><i class="fa fa-table "></i>Crear Oficina</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Oficinas</a>
+                </li>
+                   <li>
+                    <a href="frm_SPV_CrearPeriodo.aspx"><i class="fa fa-table "></i>Crear Periodo</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarPeriodo.aspx"><i class="fa fa-qrcode "></i>Gestionar Periodos</a>
                 </li>
                 <li>
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
@@ -48,7 +60,7 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Controles</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Gestionar Controles</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <asp:GridView ID="gridControl"  ShowHeaderWhenEmpty ="True"   runat="server"  HorizontalAlign="Center" 
         AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 

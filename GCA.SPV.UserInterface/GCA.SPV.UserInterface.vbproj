@@ -143,8 +143,8 @@
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
-    <Content Include="Presentation\frm_SPV_Administrar_Periodo.aspx" />
-    <Content Include="Presentation\frm_SPV_Crear_Periodo.aspx" />
+    <Content Include="Presentation\frm_SPV_AdministrarPeriodo.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearPeriodo.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarControl.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarOficina.aspx" />
@@ -192,18 +192,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Presentation\frm_SPV_Administrar_Periodo.aspx.designer.vb">
-      <DependentUpon>frm_SPV_Administrar_Periodo.aspx</DependentUpon>
+    <Compile Include="Presentation\frm_SPV_AdministrarPeriodo.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarPeriodo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\frm_SPV_Administrar_Periodo.aspx.vb">
-      <DependentUpon>frm_SPV_Administrar_Periodo.aspx</DependentUpon>
+    <Compile Include="Presentation\frm_SPV_AdministrarPeriodo.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarPeriodo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Presentation\frm_SPV_Crear_Periodo.aspx.designer.vb">
-      <DependentUpon>frm_SPV_Crear_Periodo.aspx</DependentUpon>
+    <Compile Include="Presentation\frm_SPV_CrearPeriodo.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearPeriodo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Presentation\frm_SPV_Crear_Periodo.aspx.vb">
-      <DependentUpon>frm_SPV_Crear_Periodo.aspx</DependentUpon>
+    <Compile Include="Presentation\frm_SPV_CrearPeriodo.aspx.vb">
+      <DependentUpon>frm_SPV_CrearPeriodo.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\frm_SPV_AdministrarControl.aspx.designer.vb">
