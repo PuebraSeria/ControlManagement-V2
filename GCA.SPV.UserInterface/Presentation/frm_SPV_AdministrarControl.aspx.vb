@@ -101,7 +101,4 @@ Public Class frm_SPV_AdministrarControl
             End If
         End If
     End Sub
-
-
-
 End Class

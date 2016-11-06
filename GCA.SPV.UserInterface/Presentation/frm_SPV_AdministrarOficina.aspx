@@ -1,5 +1,6 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_AdministrarSupervisor.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_AdministrarSupervisor" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_AdministrarOficina.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_AdministrarOficina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
@@ -21,13 +22,13 @@
                  <li>
                     <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
                 </li>
-                 <li>
+                 <li class="active-link">
                     <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
                 </li>
                  <li>
                     <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
                 </li>
-                 <li class="active-link">
+                 <li>
                     <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
                 </li>
                 <li>
@@ -44,21 +45,15 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Supervisor</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Oficinas</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="gridSupervisor" ShowHeaderWhenEmpty ="True"  runat="server"   HorizontalAlign="Center" BackColor  ="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="5" 
-        AutoGenerateColumns="False" CellSpacing="5" DataKeyNames="TC_Codigo_Supervisor"
-        OnRowCancelingEdit ="gridSupervisor_RowCancelingEdit" OnRowDeleting ="gridSupervisor_RowDeleting" OnRowEditing ="gridSupervisor_RowEditing" OnRowUpdating ="gridSupervisor_RowUpdating"
-        OnPageIndexChanging ="gridControl_PageIndexChanging"   >
+    <asp:GridView ID="gridOficina" runat="server" HorizontalAlign ="Center" AutoGenerateColumns="False" DataKeyNames="TC_Codigo_Oficina" BackColor="White" BorderColor="#CCCCCC"
+         BorderStyle="None" BorderWidth="1px" ShowHeaderWhenEmpty ="True"  CellPadding="3" OnRowCancelingEdit ="gridOficina_RowCancelingEdit" OnRowDeleting ="gridOficina_RowDeleting" OnRowEditing ="gridOficina_RowEditing" 
+        OnRowUpdating ="gridOficina_RowUpdating" OnPageIndexChanging="gridOficina_PageIndexChanging"   >
         <Columns>
-            <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="TC_Codigo_Supervisor" HeaderText="Código" SortExpression="TC_Codigo_Supervisor"   ReadOnly="True"/>
-            <asp:BoundField DataField="TC_DNI_Supervisor" HeaderText="DNI" SortExpression="TC_DNI_Supervisor" />
-            <asp:BoundField DataField="TC_Contrasenna_Supervisor" HeaderText="Contraseña" SortExpression="TC_Contrasenna_Supervisor" />
-            <asp:BoundField DataField="TC_Nombre_Supervisor" HeaderText="Nombre" SortExpression="TC_Nombre_Supervisor" />
-            <asp:BoundField DataField="TC_PrimerApellido_Supervisor" HeaderText="Primer Apellido" SortExpression="TC_PrimerApellido_Supervisor" />
-            <asp:BoundField DataField="TC_SegundoApellido_Supervisor" HeaderText="Segundo Apellido" SortExpression="TC_SegundoApellido_Supervisor" />
-            <asp:BoundField DataField="TC_Email_Supervisor" HeaderText="Email" SortExpression="TC_Email_Supervisor" />
+            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" HeaderText="Acción" />
+            <asp:BoundField DataField="TC_Codigo_Oficina" HeaderText="Código" ReadOnly="True" SortExpression="TC_Codigo_Oficina" />
+            <asp:BoundField DataField="TC_Nombre_Oficina" HeaderText="Nombre" SortExpression="TC_Nombre_Oficina" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#000066" />
         <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />

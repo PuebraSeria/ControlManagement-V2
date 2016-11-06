@@ -20,14 +20,14 @@ Public Class frm_SPV_AdministrarJefeOficina
 
     End Sub
 
-    Protected Sub gridControl_RowCancelingEdit(sender As Object, e As GridViewCancelEditEventArgs)
+    Protected Sub gridJefeOficina_RowCancelingEdit(sender As Object, e As GridViewCancelEditEventArgs)
 
         gridJefeOficina.EditIndex = -1
 
         fillGrid()
     End Sub
 
-    Protected Sub gridControl_RowDeleting(sender As [Object], e As GridViewDeleteEventArgs)
+    Protected Sub gridJefeOficina_RowDeleting(sender As [Object], e As GridViewDeleteEventArgs)
         Dim row As GridViewRow = gridJefeOficina.Rows(e.RowIndex)
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim jefeB As New JefeOficinaBusiness(conn)
@@ -39,12 +39,12 @@ Public Class frm_SPV_AdministrarJefeOficina
 
 
 
-    Protected Sub gridControl_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
+    Protected Sub gridJefeOficina_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
         gridJefeOficina.PageIndex = e.NewPageIndex
         fillGrid()
     End Sub
 
-    Protected Sub gridControl_RowUpdating(sender As Object, e As GridViewUpdateEventArgs)
+    Protected Sub gridJefeOficina_RowUpdating(sender As Object, e As GridViewUpdateEventArgs)
         Dim row As GridViewRow = gridJefeOficina.Rows(e.RowIndex)
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim jefeB As New JefeOficinaBusiness(conn)
@@ -75,13 +75,13 @@ Public Class frm_SPV_AdministrarJefeOficina
 
     End Sub
 
-    Protected Sub gridControl_RowEditing(sender As Object, e As GridViewEditEventArgs)
+    Protected Sub gridJefeOficina_RowEditing(sender As Object, e As GridViewEditEventArgs)
         gridJefeOficina.EditIndex = e.NewEditIndex
 
         fillGrid()
     End Sub
 
-    Protected Sub gridControl_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+    Protected Sub gridJefeOficina_RowDataBound(sender As Object, e As GridViewRowEventArgs)
         e.Row.Cells(8).Visible = False
 
         If e.Row.RowType = DataControlRowType.DataRow Then

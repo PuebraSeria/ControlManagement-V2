@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_AdministrarJefeOficina.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_AdministrarJefeOficina" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_Administrar_Periodo.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_Administrar_Periodo" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
 </asp:Content>
@@ -45,34 +45,16 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Jefes de Oficina</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Periodos</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="gridJefeOficina"  ShowHeaderWhenEmpty ="true"  runat ="server"
-         HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
-         CellPadding="5" DataKeyNames="TC_Codigo_JefeOficina" CellSpacing="5"
-        OnRowCancelingEdit ="gridJefeOficina_RowCancelingEdit"  OnRowDeleting ="gridJefeOficina_RowDeleting" OnRowEditing ="gridJefeOficina_RowEditing" OnRowUpdating ="gridJefeOficina_RowUpdating" 
-        OnRowDataBound ="gridJefeOficina_RowDataBound" OnPageIndexChanging ="gridJefeOficina_PageIndexChanging" >
+    <asp:GridView ID="gridPeriodo" runat="server" HorizontalAlign ="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
+         BorderWidth="1px" CellPadding="3" DataKeyNames="TN_Id_Periodo" OnRowCancelingEdit ="gridPeriodo_RowCancelingEdit" OnRowDataBound ="gridPeriodo_RowDataBound" 
+        OnRowDeleting ="gridPeriodo_RowDeleting"  OnRowEditing ="gridPeriodo_RowEditing"  OnRowUpdating ="gridPeriodo_RowUpdating" OnPageIndexChanging ="gridPeriodo_PageIndexChanging" >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
-            <asp:BoundField DataField="TC_Codigo_JefeOficina" HeaderText="Código" ReadOnly="True" SortExpression="TC_Codigo_JefeOficina" />
-            <asp:BoundField DataField="TC_DNI_JefeOficina" HeaderText="DNI" SortExpression="TC_DNI_JefeOficina" />
-            <asp:BoundField DataField="TC_Contrasenna_JefeOficina" HeaderText="Contraseña" SortExpression="TC_Contrasenna_JefeOficina" />
-            <asp:BoundField DataField="TC_Nombre_JefeOficina" HeaderText="Nombre" SortExpression="TC_Nombre_JefeOficina" />
-            <asp:BoundField DataField="TC_PrimerApellido_JefeOficina" HeaderText="Primer Apellido" SortExpression="TC_PrimerApellido_JefeOficina" />
-            <asp:BoundField DataField="TC_SegundoApellido_JefeOficina" HeaderText="Segundo Apellido" SortExpression="TC_SegundoApellido_JefeOficina" />
-            <asp:BoundField DataField="TC_Email_JefeOficina" HeaderText="Email" SortExpression="TC_Email_JefeOficina" />
-            <asp:BoundField DataField="TC_CodOficina_JefeOficina" HeaderText="Oficina" SortExpression="TC_CodOficina_JefeOficina" Visible="False" />
-            <asp:TemplateField HeaderText="Oficina" SortExpression="TC_Nombre_Oficina">
-                <EditItemTemplate>
-                    <asp:DropDownList ID="ddlOficina" runat="server" DataTextField="TC_Nombre_Oficina" DataValueField="TC_Codigo_Oficina">
-
-                    </asp:DropDownList>
-                     <asp:Label ID="lblOficina" runat="server" Text='<%# Bind("TC_CodOficina_JefeOficina") %>' Visible ="True"></asp:Label>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TC_Nombre_Oficina") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:BoundField DataField="TN_Id_Periodo" HeaderText="ID" InsertVisible="False" ReadOnly="True" SortExpression="TN_Id_Periodo" Visible="False" />
+            <asp:BoundField DataField="TC_Nombre_Periodo" HeaderText="Nombre" SortExpression="TC_Nombre_Periodo" />
+            <asp:BoundField DataField="TN_Dias_Periodo" HeaderText="Dias del Periodo" SortExpression="TN_Dias_Periodo" />
         </Columns>
         <FooterStyle BackColor="White" ForeColor="#000066" />
         <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
@@ -84,4 +66,5 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
+
 </asp:Content>

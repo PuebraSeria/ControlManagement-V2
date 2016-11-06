@@ -54,7 +54,7 @@
         AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
         DataKeyNames="TC_Codigo_DocControl"
         OnRowDeleting ="gridControl_RowDeleting" OnRowCancelingEdit ="gridControl_RowCancelingEdit"   OnPageIndexChanging ="gridControl_PageIndexChanging" OnRowUpdating="gridControl_RowUpdating"
-        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound"   >
+        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound" Width="698px"  >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_DocControl" HeaderText="Codigo" ReadOnly="True" SortExpression="TC_Codigo_DocControl" />

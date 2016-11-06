@@ -11,14 +11,14 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class frm_SPV_AdministrarSupervisor
+Partial Public Class frm_SPV_Administrar_Periodo
     
     '''<summary>
-    '''gridSupervisor control.
+    '''gridPeriodo control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents gridSupervisor As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gridPeriodo As Global.System.Web.UI.WebControls.GridView
 End Class
