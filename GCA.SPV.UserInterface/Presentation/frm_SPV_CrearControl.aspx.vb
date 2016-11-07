@@ -58,8 +58,9 @@ Public Class frm_SPV_CrearControl
                 control.Periocidad_DocControl = p
             End If
 
-            control.FechaFinal_DocControl = txtFechaF.Text
-            control.FechaInicio_DocControl = txtFechaI.Text
+            control.FechaFinal_DocControl = Request.Form(txtFechaF.UniqueID)
+            control.FechaInicio_DocControl = Request.Form(txtFechaI.UniqueID)
+
 
             controlB.crearControl(control)
             Response.Cookies("mensaje").Value = "El control se creo correctamente."

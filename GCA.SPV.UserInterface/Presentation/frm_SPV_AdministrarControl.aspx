@@ -66,7 +66,7 @@
         AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
         DataKeyNames="TC_Codigo_DocControl"
         OnRowDeleting ="gridControl_RowDeleting" OnRowCancelingEdit ="gridControl_RowCancelingEdit"   OnPageIndexChanging ="gridControl_PageIndexChanging" OnRowUpdating="gridControl_RowUpdating"
-        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound" Width="698px"  >
+        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound" Width="698px" OnPreRender ="gridControl_PreRender"  >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_DocControl" HeaderText="Codigo" ReadOnly="True" SortExpression="TC_Codigo_DocControl" />
@@ -85,18 +85,18 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Fecha de Inicio" SortExpression="TF_FechaInicio_DocControl">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtFechaI" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl") %>' ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtFechaI" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl", "{0:dd/MM/yyyy}") %>' ></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Fecha Final" SortExpression="TF_FechaFinal_DocControl"  >
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtFechaF" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl") %>' ReadOnly="true" ></asp:TextBox>
+                    <asp:TextBox ID="txtFechaF" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl", "{0:dd/MM/yyyy}") %>' ></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl", "{0:dd/MM/yyyy}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -111,6 +111,24 @@
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
               <script>
+                  $.datepicker.regional['es'] = {
+                      closeText: 'Cerrar',
+                      prevText: '<Ant',
+                      nextText: 'Sig>',
+                      currentText: 'Hoy',
+                      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                      monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                      dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                      dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                      weekHeader: 'Sm',
+                      dateFormat: 'dd/mm/yy',
+                      firstDay: 1,
+                      isRTL: false,
+                      showMonthAfterYear: false,
+                      yearSuffix: ''
+                  };
+                  $.datepicker.setDefaults($.datepicker.regional['es']);
                   $(function () {
                       $("input[type=text][id*=txtFechaI]").datepicker();
                       $("input[type=text][id*=txtFechaF]").datepicker();
