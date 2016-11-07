@@ -21,4 +21,13 @@ Partial Public Class frm_SPV_AdministrarControl
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gridControl As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''Label4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
 End Class

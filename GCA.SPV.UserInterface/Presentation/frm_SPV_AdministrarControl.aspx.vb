@@ -5,7 +5,7 @@ Imports GCA.Domain
 Public Class frm_SPV_AdministrarControl
     Inherits System.Web.UI.Page
 
-
+    Private tipo As Integer
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
@@ -44,6 +44,7 @@ Public Class frm_SPV_AdministrarControl
 
     Protected Sub gridControl_PageIndexChanging(sender As Object, e As GridViewPageEventArgs)
         gridControl.PageIndex = e.NewPageIndex
+
         fillGrid()
     End Sub
 
@@ -77,7 +78,17 @@ Public Class frm_SPV_AdministrarControl
 
     Protected Sub gridControl_RowEditing(sender As Object, e As GridViewEditEventArgs)
         gridControl.EditIndex = e.NewEditIndex
+        Dim codigo As String = gridControl.Rows(gridControl.EditIndex).Cells(3).Text
+        If (Not String.IsNullOrEmpty(codigo)) Then
+            tipo = 1
+            gridControl.Rows(gridControl.EditIndex).Cells(5).Enabled = False
+            gridControl.Rows(gridControl.EditIndex).Cells(6).Enabled = False
 
+        Else
+            tipo = 2
+            gridControl.Rows(gridControl.EditIndex).Cells(4).Enabled = False
+
+        End If
         fillGrid()
     End Sub
 
@@ -94,11 +105,14 @@ Public Class frm_SPV_AdministrarControl
                 ddl.DataTextField = "TC_Nombre_Periodo"
                 ddl.DataValueField = "TN_Id_Periodo"
                 Dim periocidad As Label = DirectCast(e.Row.FindControl("labelPeriodo"), Label)
-                ddl.SelectedValue = periocidad.Text
+                If (Not String.IsNullOrEmpty(periocidad.Text)) Then
+                    ddl.SelectedValue = periocidad.Text
+                End If
+
 
 
                 ddl.DataBind()
+                End If
             End If
-        End If
     End Sub
 End Class

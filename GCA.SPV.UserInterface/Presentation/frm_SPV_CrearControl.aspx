@@ -71,6 +71,18 @@
                         </tr>
                          <tr>
                             <td>
+                                <br />
+                                <asp:Label ID="lblEscoge" runat="server" Text="Escoja el tipo de control:"></asp:Label>
+                                 <br />
+                                <asp:DropDownList ID="ddlEscoge" runat="server" OnSelectedIndexChanged ="ddlEscoge_SelectedIndexChanged" AutoPostBack="true" >
+                                    <asp:ListItem Value ="1">Periodo</asp:ListItem>
+                                    <asp:ListItem Value="2">Fecha</asp:ListItem>
+                                </asp:DropDownList>
+                                <br />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
                                 <asp:Label runat="server" Text="Código:"></asp:Label>
                                 <br />
                                 <asp:TextBox ID="txtCodigo" runat="server" Height="27px" Width="485px"></asp:TextBox><br />
@@ -96,15 +108,15 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label runat="server" Text="Periocidad:"></asp:Label>
+                                <asp:Label runat="server" Text="Periocidad:"  ID="lblPeriocidad"></asp:Label>
                                 <br />
-                                <asp:DropDownList ID="ddlPeriocidad" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlPeriocidad" runat="server" ></asp:DropDownList>
                                 <br />
                             </td>
                         </tr>
                           <tr>
                             <td>
-                                <asp:Label runat="server" Text="Fecha de inicio:"></asp:Label>
+                                <asp:Label runat="server" Text="Fecha de inicio:" ID="lblFechaI"></asp:Label>
                                 <br />
                                 <asp:TextBox ID="txtFechaI" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
                                 <br />
@@ -112,7 +124,7 @@
                         </tr>
                          <tr>
                             <td>
-                                <asp:Label runat="server" Text="Fecha final:"></asp:Label>
+                                <asp:Label runat="server" Text="Fecha final:"  ID="lblFechaF"></asp:Label>
                                 <br />
                                  <asp:TextBox ID="txtFechaF" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
                                 <br />
@@ -124,6 +136,7 @@
                            </td>
                         </tr>
                     </table>
+    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
               <script>
                   $(function () {
                 $( "#<%= txtFechaI.ClientID %>" ).datepicker();
