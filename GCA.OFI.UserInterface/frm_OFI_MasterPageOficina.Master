@@ -54,8 +54,6 @@
             </div><!-- Fin del footer-->
         </div><!-- /. PAGE WRAPPER  -->
         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-        <!-- JQUERY SCRIPTS -->
-        <script src="DESARROLLO/JS/jquery-1.10.2.js"></script>
         <!-- CUSTOM SCRIPTS -->
         <script src="DESARROLLO/JS/custom.js"></script>
     </body>

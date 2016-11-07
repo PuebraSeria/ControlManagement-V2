@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Conten2" ContentPlaceHolderID="titulo" runat="server">
     <h2>Enviar Control</h2>
+    <a href="frm_OFI_ConEstadoReportes.aspx" style="float: left;font-size: 313%;"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->

@@ -46,6 +46,10 @@
             <ContentTemplate>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
+                        <asp:Label ID="lblControl" runat="server" Text="Control:" AssociatedControlID="ddlControl"></asp:Label>
+                        <asp:DropDownList ID="ddlControl" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlControl_SelectedIndexChanged">
+                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                        </asp:DropDownList>
                         <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>
                         <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black">
                             <asp:ListItem Value="0">Seleccione</asp:ListItem>
@@ -66,20 +70,26 @@
                                     <th>Adjuntar evidencia:</th>
                                 </tr>
                             </thead>
-                            <tbody id="cuerpoTabla" runat="server"></tbody>
+                            <tbody id="cuerpoTabla" runat="server">
+                            </tbody>
                         </table>
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upEstadoReportes">
+                            <ProgressTemplate>
+                                <div class="text-center">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
                     </div>
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
     </form>
 
-    <!-- BOOTSTRAP SCRIPTS -->
+    <!-- JQUERY SCRIPTS -->
+    <script src="../DESARROLLO/JS/jquery-1.10.2.js"></script>
     <script src="../DESARROLLO/JS/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        function redireccionar()
-        {
-            location.href = "frm_OFI_ManEnviarControl.aspx";
-        }
-    </script>
 </asp:Content>
