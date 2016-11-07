@@ -130,6 +130,10 @@
   <ItemGroup>
     <Content Include="DESARROLLO\Estilos\bootstrap.css" />
     <Content Include="DESARROLLO\Estilos\custom.css" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\css\font-awesome.css" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\css\font-awesome.min.css" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\HELP-US-OUT.txt" />
     <Content Include="DESARROLLO\Estilos\font-awesome.css" />
     <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.svg" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.svg" />
@@ -139,7 +143,9 @@
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
     <Content Include="Presentation\frm_OFI_ConEstadoReportes.aspx" />
+    <Content Include="Presentation\frm_OFI_Historial.aspx" />
     <Content Include="Presentation\frm_OFI_ManEnviarControl.aspx" />
+    <Content Include="Presentation\ParaPruebasXD.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
@@ -181,12 +187,26 @@
       <DependentUpon>frm_OFI_ConEstadoReportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Presentation\frm_OFI_Historial.aspx.designer.vb">
+      <DependentUpon>frm_OFI_Historial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_OFI_Historial.aspx.vb">
+      <DependentUpon>frm_OFI_Historial.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\frm_OFI_ManEnviarControl.aspx.designer.vb">
       <DependentUpon>frm_OFI_ManEnviarControl.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frm_OFI_ManEnviarControl.aspx.vb">
       <DependentUpon>frm_OFI_ManEnviarControl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\ParaPruebasXD.aspx.designer.vb">
+      <DependentUpon>ParaPruebasXD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\ParaPruebasXD.aspx.vb">
+      <DependentUpon>ParaPruebasXD.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +230,39 @@
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.ttf" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.woff" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\animated.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\core.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\icons.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\larger.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\list.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\path.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\less\variables.less" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_variables.scss" />
+    <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\font-awesome.scss" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
