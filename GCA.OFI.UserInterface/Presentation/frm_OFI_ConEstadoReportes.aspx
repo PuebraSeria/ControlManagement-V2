@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_OFI_MasterPageOficina.Master" CodeBehind="frm_OFI_ConEstadoReportes.aspx.vb" Inherits="GCA.OFI.UserInterface.frm_OFI_ConEstadoReportes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../DESARROLLO/Estilos/font-awesome-4.6.3/css/font-awesome.min.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server">
-    <h2>Estado de los Controles</h2>
+    Estado de los Controles
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="menu" runat="server">
@@ -18,6 +19,9 @@
 
                 <li>
                     <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-table "></i>Enviar control</a>
+                </li>
+                <li>
+                    <a href="frm_OFI_Historial.aspx"><i class="fa fa-history"></i>Historial</a>
                 </li>
                 <li>
                     <a href="blank.html"><i class="fa fa-edit "></i>Ayuda</a>
@@ -37,6 +41,45 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <form id="estadoDeLosReportes" runat="server">
-        
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="upEstadoReportes" runat="server">
+            <ContentTemplate>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>
+                        <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black">
+                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                            <asp:ListItem Value="1">0%</asp:ListItem>
+                            <asp:ListItem Value="2">75%</asp:ListItem>
+                            <asp:ListItem Value="3">90%</asp:ListItem>
+                            <asp:ListItem Value="4">100%</asp:ListItem>
+                            <asp:ListItem Value="5">+100%</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Control:</th>
+                                    <th>Estado:</th>
+                                    <th>Fecha de entrega:</th>
+                                    <th>Adjuntar evidencia:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoTabla" runat="server"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </form>
+
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../DESARROLLO/JS/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function redireccionar()
+        {
+            location.href = "frm_OFI_ManEnviarControl.aspx";
+        }
+    </script>
 </asp:Content>
