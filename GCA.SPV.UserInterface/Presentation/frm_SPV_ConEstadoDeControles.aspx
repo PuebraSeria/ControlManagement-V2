@@ -65,8 +65,8 @@
     <script src="../DESARROLLO/highCharts/jquery.js"></script>
     <script src="../DESARROLLO/highCharts/highcharts.js"></script>
     <script src="../DESARROLLO/highCharts/exporting.js"></script>
-    <img id="spinner" style="width: 50px; height: 50px; display: block; margin-left: auto; margin-right: auto;" src="../DESARROLLO/Imagenes/spinner.gif" />
-    <div id="container" style="width: 100%">
+    <img id="spinner" class="center" src="../DESARROLLO/Imagenes/spinner.gif" />
+    <div id="container" class="grafico">
     </div>
     <script type="text/javascript">
         $(function () {
