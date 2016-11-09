@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Conten2" ContentPlaceHolderID="titulo" runat="server">
     <h2>Enviar Control</h2>
+    <a href="frm_OFI_ConEstadoReportes.aspx" style="float: left;font-size: 313%;"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
@@ -17,6 +18,9 @@
 
                 <li class="active-link">
                     <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-table "></i>Enviar control</a>
+                </li>
+                <li>
+                    <a href="frm_OFI_Historial.aspx"><i class="fa fa-history"></i>Historial</a>
                 </li>
                 <li>
                     <a href="blank.html"><i class="fa fa-edit "></i>Ayuda</a>

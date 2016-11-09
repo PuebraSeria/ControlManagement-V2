@@ -23,11 +23,11 @@ Partial Public Class frm_SPV_AdministrarControl
     Protected WithEvents gridControl As Global.System.Web.UI.WebControls.GridView
     
     '''<summary>
-    '''dataControl control.
+    '''Label4 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents dataControl As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
 End Class

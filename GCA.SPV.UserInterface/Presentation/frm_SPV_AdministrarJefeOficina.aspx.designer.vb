@@ -14,29 +14,11 @@ Option Explicit On
 Partial Public Class frm_SPV_AdministrarJefeOficina
     
     '''<summary>
-    '''GridJefeOficina control.
+    '''gridJefeOficina control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridJefeOficina As Global.System.Web.UI.WebControls.GridView
-    
-    '''<summary>
-    '''dataJefe control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dataJefe As Global.System.Web.UI.WebControls.SqlDataSource
-    
-    '''<summary>
-    '''dataOficina control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dataOficina As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents gridJefeOficina As Global.System.Web.UI.WebControls.GridView
 End Class

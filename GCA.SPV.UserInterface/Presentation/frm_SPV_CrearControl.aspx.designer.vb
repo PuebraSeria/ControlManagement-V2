@@ -32,6 +32,24 @@ Partial Public Class frm_SPV_CrearControl
     Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
+    '''lblEscoge control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblEscoge As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddlEscoge control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlEscoge As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
     '''txtCodigo control.
     '''</summary>
     '''<remarks>
@@ -77,6 +95,15 @@ Partial Public Class frm_SPV_CrearControl
     Protected WithEvents txtNombreEx As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
+    '''lblPeriocidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPeriocidad As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''ddlPeriocidad control.
     '''</summary>
     '''<remarks>
@@ -86,6 +113,15 @@ Partial Public Class frm_SPV_CrearControl
     Protected WithEvents ddlPeriocidad As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''lblFechaI control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFechaI As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
     '''txtFechaI control.
     '''</summary>
     '''<remarks>
@@ -93,6 +129,15 @@ Partial Public Class frm_SPV_CrearControl
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtFechaI As Global.System.Web.UI.WebControls.TextBox
+    
+    '''<summary>
+    '''lblFechaF control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFechaF As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''txtFechaF control.

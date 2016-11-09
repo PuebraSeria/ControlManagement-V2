@@ -13,26 +13,38 @@
                 <li>
                     <a href="frm_SPV_ConEstadoDeControles.aspx"><i class="fa fa-desktop"></i>Estado de los controles</a>
                 </li>
-                <li class="active-link">
+                <li>
                     <a href="frm_SPV_CrearControl.aspx"><i class="fa fa-table "></i>Crear control</a>
                 </li>
                 <li>
+                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Gestionar Controles</a>
+                </li>
+                 <li>
                     <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
-                <li>
-                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Administrar control</a>
+                 <li>
+                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-table "></i>Crear Jefe de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
+                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Jefes de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
+                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-table "></i>Crear Supervisor</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
+                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-qrcode "></i>Gestionar Supervisores</a>
+                </li>
+                  <li class="active-link">
+                    <a href="frm_SPV_CrearOficina.aspx"><i class="fa fa-table "></i>Crear Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
+                    <a href="frm_SPV_AdministrarOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Oficinas</a>
+                </li>
+                   <li>
+                    <a href="frm_SPV_CrearPeriodo.aspx"><i class="fa fa-table "></i>Crear Periodo</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarPeriodo.aspx"><i class="fa fa-qrcode "></i>Gestionar Periodos</a>
                 </li>
                 <li>
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
@@ -55,6 +67,18 @@
                             <td>
                                 <br />
                                 <asp:Label ForeColor="Red"  ID="lblMensaje" runat="server" Text=""></asp:Label><br />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <br />
+                                <asp:Label ID="lblEscoge" runat="server" Text="Escoja el tipo de control:"></asp:Label>
+                                 <br />
+                                <asp:DropDownList ID="ddlEscoge" runat="server" OnSelectedIndexChanged ="ddlEscoge_SelectedIndexChanged" AutoPostBack="true" >
+                                    <asp:ListItem Value ="1">Periodo</asp:ListItem>
+                                    <asp:ListItem Value="2">Fecha</asp:ListItem>
+                                </asp:DropDownList>
+                                <br />
                             </td>
                         </tr>
                          <tr>
@@ -84,15 +108,15 @@
                         </tr>
                         <tr>
                             <td>
-                                <asp:Label runat="server" Text="Periocidad:"></asp:Label>
+                                <asp:Label runat="server" Text="Periocidad:"  ID="lblPeriocidad"></asp:Label>
                                 <br />
-                                <asp:DropDownList ID="ddlPeriocidad" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlPeriocidad" runat="server" ></asp:DropDownList>
                                 <br />
                             </td>
                         </tr>
                           <tr>
                             <td>
-                                <asp:Label runat="server" Text="Fecha de inicio:"></asp:Label>
+                                <asp:Label runat="server" Text="Fecha de inicio:" ID="lblFechaI"></asp:Label>
                                 <br />
                                 <asp:TextBox ID="txtFechaI" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
                                 <br />
@@ -100,9 +124,9 @@
                         </tr>
                          <tr>
                             <td>
-                                <asp:Label runat="server" Text="Fecha final:"></asp:Label>
+                                <asp:Label runat="server" Text="Fecha final:"  ID="lblFechaF"></asp:Label>
                                 <br />
-                                 <asp:TextBox ID="txtFechaF" runat="server"  style="height:27px;width :485px; " ReadOnly="true" ></asp:TextBox>
+                                 <asp:TextBox ID="txtFechaF" runat="server"  style="height:27px;width :485px; "  ReadOnly ="true" ></asp:TextBox>
                                 <br />
                             </td>
                         </tr>
@@ -113,6 +137,24 @@
                         </tr>
                     </table>
               <script>
+                  $.datepicker.regional['es'] = {
+                      closeText: 'Cerrar',
+                      prevText: '<Ant',
+                      nextText: 'Sig>',
+                      currentText: 'Hoy',
+                      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                      monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                      dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                      dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                      weekHeader: 'Sm',
+                      dateFormat: 'dd/mm/yy',
+                      firstDay: 1,
+                      isRTL: false,
+                      showMonthAfterYear: false,
+                      yearSuffix: ''
+                  };
+                  $.datepicker.setDefaults($.datepicker.regional['es']);
                   $(function () {
                 $( "#<%= txtFechaI.ClientID %>" ).datepicker();
                $( "#<%= txtFechaF.ClientID %>" ).datepicker();

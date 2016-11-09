@@ -102,7 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DESARROLLO\Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -133,25 +132,35 @@
     <Content Include="DESARROLLO\Estilos\custom.css" />
     <Content Include="DESARROLLO\Estilos\font-awesome.css" />
     <Content Include="DESARROLLO\Estilos\jquery-ui.css" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\css\font-awesome.css" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\css\font-awesome.min.css" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\fontawesome-webfont.svg" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\HELP-US-OUT.txt" />
     <Content Include="DESARROLLO\Fuentes\fontawesome-webfont.svg" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.svg" />
     <Content Include="DESARROLLO\Graficos\graficoEstadoControles.js" />
     <Content Include="DESARROLLO\highCharts\exporting.js" />
     <Content Include="DESARROLLO\highCharts\highcharts.js" />
     <Content Include="DESARROLLO\highCharts\jquery.js" />
+    <Content Include="DESARROLLO\Imagenes\spinner.gif" />
     <Content Include="DESARROLLO\JS\bootstrap.min.js" />
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
     <Content Include="Global.asax" />
+    <Content Include="Presentation\frm_SPV_AdministrarPeriodo.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearPeriodo.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarControl.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx" />
+    <Content Include="Presentation\frm_SPV_AdministrarOficina.aspx" />
     <Content Include="Presentation\frm_SPV_AdministrarSupervisor.aspx" />
     <Content Include="Presentation\frm_SPV_AsignarControl.aspx" />
     <Content Include="Presentation\frm_SPV_ConEstadoDeControles.aspx" />
     <Content Include="Presentation\frm_SPV_ConGenerarReporte.aspx" />
     <Content Include="Presentation\frm_SPV_CrearControl.aspx" />
     <Content Include="Presentation\frm_SPV_CrearJefeOficina.aspx" />
+    <Content Include="Presentation\frm_SPV_CrearOficina.aspx" />
     <Content Include="Presentation\frm_SPV_CrearSupervisor.aspx" />
+    <Content Include="Presentation\frm_SPV_EstadoOficinaControles.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="DESARROLLO\JS\jquery-1.12.4.js" />
@@ -188,6 +197,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarPeriodo.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarPeriodo.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearPeriodo.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearPeriodo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearPeriodo.aspx.vb">
+      <DependentUpon>frm_SPV_CrearPeriodo.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\frm_SPV_AdministrarControl.aspx.designer.vb">
       <DependentUpon>frm_SPV_AdministrarControl.aspx</DependentUpon>
     </Compile>
@@ -200,6 +223,13 @@
     </Compile>
     <Compile Include="Presentation\frm_SPV_AdministrarJefeOficina.aspx.vb">
       <DependentUpon>frm_SPV_AdministrarJefeOficina.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarOficina.aspx.designer.vb">
+      <DependentUpon>frm_SPV_AdministrarOficina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_AdministrarOficina.aspx.vb">
+      <DependentUpon>frm_SPV_AdministrarOficina.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Presentation\frm_SPV_AdministrarSupervisor.aspx.designer.vb">
@@ -244,11 +274,25 @@
       <DependentUpon>frm_SPV_CrearJefeOficina.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearOficina.aspx.designer.vb">
+      <DependentUpon>frm_SPV_CrearOficina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_CrearOficina.aspx.vb">
+      <DependentUpon>frm_SPV_CrearOficina.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Presentation\frm_SPV_CrearSupervisor.aspx.designer.vb">
       <DependentUpon>frm_SPV_CrearSupervisor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Presentation\frm_SPV_CrearSupervisor.aspx.vb">
       <DependentUpon>frm_SPV_CrearSupervisor.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_EstadoOficinaControles.aspx.designer.vb">
+      <DependentUpon>frm_SPV_EstadoOficinaControles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Presentation\frm_SPV_EstadoOficinaControles.aspx.vb">
+      <DependentUpon>frm_SPV_EstadoOficinaControles.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
@@ -273,6 +317,39 @@
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.ttf" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regular.woff" />
     <Content Include="DESARROLLO\Fuentes\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\fontawesome-webfont.eot" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\fontawesome-webfont.ttf" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\fontawesome-webfont.woff" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\fontawesome-webfont.woff2" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\fonts\FontAwesome.otf" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\animated.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\bordered-pulled.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\core.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\fixed-width.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\font-awesome.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\icons.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\larger.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\list.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\mixins.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\path.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\rotated-flipped.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\screen-reader.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\stacked.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\less\variables.less" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_animated.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_bordered-pulled.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_core.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_fixed-width.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_icons.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_larger.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_list.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_mixins.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_path.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_rotated-flipped.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_screen-reader.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_stacked.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\_variables.scss" />
+    <Content Include="DESARROLLO\font-awesome-4.6.3\scss\font-awesome.scss" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

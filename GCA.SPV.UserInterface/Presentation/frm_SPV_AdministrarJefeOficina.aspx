@@ -6,30 +6,42 @@
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
+             <ul class="nav" id="main-menu">
                 <li>
                     <a href="frm_SPV_ConEstadoDeControles.aspx"><i class="fa fa-desktop"></i>Estado de los controles</a>
                 </li>
-                <li>
+                <li >
                     <a href="frm_SPV_CrearControl.aspx"><i class="fa fa-table "></i>Crear control</a>
                 </li>
                 <li>
+                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Gestionar Controles</a>
+                </li>
+                 <li>
                     <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
-                <li>
-                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Administrar control</a>
-                </li>
                  <li>
-                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
+                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-table "></i>Crear Jefe de Oficina</a>
                 </li>
                  <li class="active-link">
-                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
+                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Jefes de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
+                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-table "></i>Crear Supervisor</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
+                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-qrcode "></i>Gestionar Supervisores</a>
+                </li>
+                  <li>
+                    <a href="frm_SPV_CrearOficina.aspx"><i class="fa fa-table "></i>Crear Oficina</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Oficinas</a>
+                </li>
+                   <li>
+                    <a href="frm_SPV_CrearPeriodo.aspx"><i class="fa fa-table "></i>Crear Periodo</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarPeriodo.aspx"><i class="fa fa-qrcode "></i>Gestionar Periodos</a>
                 </li>
                 <li>
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
@@ -45,9 +57,13 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Jefes de Oficina</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Gestionar Jefes de Oficina</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:GridView ID="GridJefeOficina"  ShowHeaderWhenEmpty ="true"  runat ="server" AllowSorting="True" HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="5" DataKeyNames="TC_Codigo_JefeOficina" DataSourceID="dataJefe" CellSpacing="5">
+    <asp:GridView ID="gridJefeOficina"  ShowHeaderWhenEmpty ="true"  runat ="server"
+         HorizontalAlign="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px"
+         CellPadding="5" DataKeyNames="TC_Codigo_JefeOficina" CellSpacing="5"
+        OnRowCancelingEdit ="gridJefeOficina_RowCancelingEdit"  OnRowDeleting ="gridJefeOficina_RowDeleting" OnRowEditing ="gridJefeOficina_RowEditing" OnRowUpdating ="gridJefeOficina_RowUpdating" 
+        OnRowDataBound ="gridJefeOficina_RowDataBound" OnPageIndexChanging ="gridJefeOficina_PageIndexChanging" Width="704px" >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_JefeOficina" HeaderText="Código" ReadOnly="True" SortExpression="TC_Codigo_JefeOficina" />
@@ -60,8 +76,10 @@
             <asp:BoundField DataField="TC_CodOficina_JefeOficina" HeaderText="Oficina" SortExpression="TC_CodOficina_JefeOficina" Visible="False" />
             <asp:TemplateField HeaderText="Oficina" SortExpression="TC_Nombre_Oficina">
                 <EditItemTemplate>
-                    <asp:DropDownList ID="ddlOficina" runat="server" DataSourceID="dataOficina" DataTextField="TC_Nombre_Oficina" DataValueField="TC_Codigo_Oficina" SelectedValue='<%# Bind("TC_CodOficina_JefeOficina") %>'>
+                    <asp:DropDownList ID="ddlOficina" runat="server" DataTextField="TC_Nombre_Oficina" DataValueField="TC_Codigo_Oficina">
+
                     </asp:DropDownList>
+                     <asp:Label ID="lblOficina" runat="server" Text='<%# Bind("TC_CodOficina_JefeOficina") %>' Visible ="True"></asp:Label>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("TC_Nombre_Oficina") %>'></asp:Label>
@@ -78,34 +96,4 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-    <asp:SqlDataSource ID="dataJefe" runat="server" ConnectionString="<%$ ConnectionStrings:GCAConnectionString %>" 
-        DeleteCommand="DELETE FROM [TJefeOficina] WHERE [TC_Codigo_JefeOficina] = @TC_Codigo_JefeOficina" 
-        InsertCommand="INSERT INTO [TJefeOficina] ([TC_Codigo_JefeOficina], [TC_DNI_JefeOficina], [TC_Contrasenna_JefeOficina], [TC_PrimerApellido_JefeOficina], [TC_Nombre_JefeOficina], [TC_SegundoApellido_JefeOficina], [TC_Email_JefeOficina], [TC_CodOficina_JefeOficina]) VALUES (@TC_Codigo_JefeOficina, @TC_DNI_JefeOficina, @TC_Contrasenna_JefeOficina, @TC_PrimerApellido_JefeOficina, @TC_Nombre_JefeOficina, @TC_SegundoApellido_JefeOficina, @TC_Email_JefeOficina, @TC_CodOficina_JefeOficina)"
-         SelectCommand="SELECT [TC_Codigo_JefeOficina], [TC_DNI_JefeOficina], [TC_Contrasenna_JefeOficina], [TC_PrimerApellido_JefeOficina], [TC_Nombre_JefeOficina], [TC_SegundoApellido_JefeOficina], [TC_Email_JefeOficina], [TC_Nombre_Oficina],[TC_CodOficina_JefeOficina] FROM [TJefeOficina] INNER JOIN  [TOficina] ON [TC_CodOficina_JefeOficina] =  [TC_Codigo_Oficina] " 
-        UpdateCommand="UPDATE [TJefeOficina] SET [TC_DNI_JefeOficina] = @TC_DNI_JefeOficina, [TC_Contrasenna_JefeOficina] = @TC_Contrasenna_JefeOficina, [TC_PrimerApellido_JefeOficina] = @TC_PrimerApellido_JefeOficina, [TC_Nombre_JefeOficina] = @TC_Nombre_JefeOficina, [TC_SegundoApellido_JefeOficina] = @TC_SegundoApellido_JefeOficina, [TC_Email_JefeOficina] = @TC_Email_JefeOficina, [TC_CodOficina_JefeOficina] = @TC_CodOficina_JefeOficina WHERE [TC_Codigo_JefeOficina] = @TC_Codigo_JefeOficina">
-        <DeleteParameters>
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_DNI_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Contrasenna_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_PrimerApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Nombre_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_SegundoApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Email_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_CodOficina_JefeOficina" Type="String" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="TC_DNI_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Contrasenna_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_PrimerApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Nombre_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_SegundoApellido_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Email_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_CodOficina_JefeOficina" Type="String" />
-            <asp:Parameter Name="TC_Codigo_JefeOficina" Type="String" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
-    <asp:SqlDataSource ID="dataOficina" runat="server" ConnectionString="<%$ ConnectionStrings:GCAConnectionString %>" SelectCommand="SELECT * FROM [TOficina]"></asp:SqlDataSource>
 </asp:Content>

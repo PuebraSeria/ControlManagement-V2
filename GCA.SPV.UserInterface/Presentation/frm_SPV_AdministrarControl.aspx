@@ -9,30 +9,42 @@
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
-            <ul class="nav" id="main-menu">
+           <ul class="nav" id="main-menu">
                 <li>
                     <a href="frm_SPV_ConEstadoDeControles.aspx"><i class="fa fa-desktop"></i>Estado de los controles</a>
                 </li>
-                <li>
+                <li >
                     <a href="frm_SPV_CrearControl.aspx"><i class="fa fa-table "></i>Crear control</a>
                 </li>
-                <li>
+                <li class="active-link">
+                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Gestionar Controles</a>
+                </li>
+                 <li>
                     <a href="frm_SPV_AsignarControl.aspx"><i class="fa fa-edit "></i>Asignar control</a>
                 </li>
-                <li class="active-link">
-                    <a href="frm_SPV_AdministrarControl.aspx"><i class="fa fa-qrcode "></i>Administrar control</a>
+                 <li>
+                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-table "></i>Crear Jefe de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Crear Jefe de Oficina</a>
-                </li>
-                 <li >
-                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Jefes de Oficina</a>
+                    <a href="frm_SPV_AdministrarJefeOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Jefes de Oficina</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Crear Supervisor</a>
+                    <a href="frm_SPV_CrearSupervisor.aspx"><i class="fa fa-table "></i>Crear Supervisor</a>
                 </li>
                  <li>
-                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-bar-chart-o"></i>Gestionar Supervisores</a>
+                    <a href="frm_SPV_AdministrarSupervisor.aspx"><i class="fa fa-qrcode "></i>Gestionar Supervisores</a>
+                </li>
+                  <li>
+                    <a href="frm_SPV_CrearOficina.aspx"><i class="fa fa-table "></i>Crear Oficina</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarOficina.aspx"><i class="fa fa-qrcode "></i>Gestionar Oficinas</a>
+                </li>
+                   <li>
+                    <a href="frm_SPV_CrearPeriodo.aspx"><i class="fa fa-table "></i>Crear Periodo</a>
+                </li>
+                 <li>
+                    <a href="frm_SPV_AdministrarPeriodo.aspx"><i class="fa fa-qrcode "></i>Gestionar Periodos</a>
                 </li>
                 <li>
                     <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
@@ -48,13 +60,13 @@
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Administrar Controles</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Gestionar Controles</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
     <asp:GridView ID="gridControl"  ShowHeaderWhenEmpty ="True"   runat="server"  HorizontalAlign="Center" 
         AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" 
         DataKeyNames="TC_Codigo_DocControl"
         OnRowDeleting ="gridControl_RowDeleting" OnRowCancelingEdit ="gridControl_RowCancelingEdit"   OnPageIndexChanging ="gridControl_PageIndexChanging" OnRowUpdating="gridControl_RowUpdating"
-        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound"   >
+        OnRowEditing ="gridControl_RowEditing"  OnRowDataBound="gridControl_RowDataBound" Width="698px" OnPreRender ="gridControl_PreRender"  >
         <Columns>
             <asp:CommandField HeaderText="Acción" ShowDeleteButton="True" ShowEditButton="True" />
             <asp:BoundField DataField="TC_Codigo_DocControl" HeaderText="Codigo" ReadOnly="True" SortExpression="TC_Codigo_DocControl" />
@@ -73,18 +85,18 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Fecha de Inicio" SortExpression="TF_FechaInicio_DocControl">
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtFechaI" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl") %>' ReadOnly="true"></asp:TextBox>
+                    <asp:TextBox ID="txtFechaI" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl", "{0:dd/MM/yyyy}") %>'></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl") %>'></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Bind("TF_FechaInicio_DocControl", "{0:dd/MM/yyyy}") %>' ></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Fecha Final" SortExpression="TF_FechaFinal_DocControl"  >
                 <EditItemTemplate>
-                    <asp:TextBox ID="txtFechaF" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl") %>' ReadOnly="true" ></asp:TextBox>
+                    <asp:TextBox ID="txtFechaF" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl", "{0:dd/MM/yyyy}") %>' ></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl") %>'></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("TF_FechaFinal_DocControl", "{0:dd/MM/yyyy}") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -98,22 +110,29 @@
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#00547E" />
     </asp:GridView>
-    <asp:SqlDataSource ID="dataControl" runat="server"  >
-        <DeleteParameters>
-            <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
-        </DeleteParameters>
-        <UpdateParameters>
-            <asp:Parameter Name="TC_Nombre_DocControl" Type="String" />
-            <asp:Parameter Name="TN_Periocidad_DocControl" Type="Int32" />
-            <asp:Parameter Name="TF_FechaInicio_DocControl" Type="DateTime" />
-            <asp:Parameter Name="TF_FechaFinal_DocControl" Type="DateTime" />
-            <asp:Parameter Name="TC_Codigo_DocControl" Type="String" />
-        </UpdateParameters>
-    </asp:SqlDataSource>
               <script>
+                  $.datepicker.regional['es'] = {
+                      closeText: 'Cerrar',
+                      prevText: '<Ant',
+                      nextText: 'Sig>',
+                      currentText: 'Hoy',
+                      monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                      monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                      dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                      dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié', 'Juv', 'Vie', 'Sáb'],
+                      dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+                      weekHeader: 'Sm',
+                      dateFormat: 'dd/mm/yy',
+                      firstDay: 1,
+                      isRTL: false,
+                      showMonthAfterYear: false,
+                      yearSuffix: ''
+                  };
+                  $.datepicker.setDefaults($.datepicker.regional['es']);
                   $(function () {
                       $("input[type=text][id*=txtFechaI]").datepicker();
                       $("input[type=text][id*=txtFechaF]").datepicker();
               } );
               </script>
+    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
 </asp:Content>
