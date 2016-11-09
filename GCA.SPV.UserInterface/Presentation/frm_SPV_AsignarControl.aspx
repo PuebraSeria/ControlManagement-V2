@@ -57,29 +57,48 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Asignar Control</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="txtLugar">Lugar:</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtLugar" TextMode="SingleLine" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="txtOficina">Oficina:</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtOficina" TextMode="SingleLine" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="txtControl">Control:</label>
-            <div class="col-sm-10">
-                <asp:TextBox ID="txtControl" TextMode="SingleLine" runat="server"></asp:TextBox>
-            </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
-              <asp:Button ID="btnEnviar" runat="server" Text="Buscar" />
-          </div>
-        </div>
-    </form>
+      <table style="width: 100%;"  runat ="server"  >
+                         <tr>
+                            <td>
+                                <br />
+                                <asp:Label ForeColor="Red"  ID="lblMensaje" runat="server" Text=""></asp:Label><br />
+                            </td>
+                        </tr>
+                         <tr>
+                            <td>
+                                <asp:Label ID="lblOficina" runat="server" Text="Oficina: "></asp:Label>
+                                 <br />
+                                <asp:DropDownList ID="ddlOficina" runat="server" OnSelectedIndexChanged ="ddlOficina_SelectedIndexChanged" AutoPostBack ="true"   >
+                                </asp:DropDownList>
+                                <br />
+                            </td>
+                        </tr>
+                    </table>
+            <br/>
+            <br/>
+          <table style="width: 50%; margin-left :25%;" id="tablaControles" runat ="server"   >
+                         <tr>
+                            <td  style="border : 1px solid #214761">
+                                <asp:Label ID="lblControl" runat="server" Text="Control"></asp:Label>
+                                 <br />
+                            </td>
+                              <td style="border : 1px solid #214761">
+                                <asp:Label ID="lblAsignado" runat="server" Text="Asignado"></asp:Label>
+                                 <br />
+                            </td>
+                        </tr>
+                    </table>
+                              <table style="width: 50%; margin-left :25%;" runat ="server"   >
+                         <tr>
+                            <td  style="width: 50%;">
+                                <br />
+                                 <br />
+                            </td>
+                              <td style="width: 50%;" >
+                                <br />
+                                  <asp:Button ID="btnAsignar" runat="server" OnClick ="btnAsignar_Click"   Text ="Actualizar" Height="49px" Width="200px"  />
+                                 <br />
+                            </td>
+                        </tr>
+                    </table>
 </asp:Content>
