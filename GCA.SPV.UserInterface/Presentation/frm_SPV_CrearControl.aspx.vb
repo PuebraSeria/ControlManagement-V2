@@ -20,22 +20,6 @@ Public Class frm_SPV_CrearControl
             tableA.Rows.RemoveAt(5)
         End If
 
-        'check = New CheckBox()
-        'label = New Label()
-        'label.Text = "Control de controles de administracion de controles por que son controles"
-        'check.Checked = True
-        'Dim t As New HtmlTableRow()
-        'Dim c As New HtmlTableCell()
-        'Dim c1 As New HtmlTableCell()
-
-        'c.Controls.Add(check)
-        'c1.Controls.Add(label)
-        't.Cells.Add(c1)
-        't.Cells.Add(c)
-        'tableA.Rows.Add(t)
-
-
-
         Dim cookie As HttpCookie = Request.Cookies("mensaje")
         If cookie IsNot Nothing Then
             lblMensaje.Text = Request.Cookies("mensaje").Value

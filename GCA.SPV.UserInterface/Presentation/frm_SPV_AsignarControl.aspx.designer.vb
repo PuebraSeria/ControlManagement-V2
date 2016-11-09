@@ -14,38 +14,65 @@ Option Explicit On
 Partial Public Class frm_SPV_AsginarControl
     
     '''<summary>
-    '''txtLugar control.
+    '''lblMensaje control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtLugar As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txtOficina control.
+    '''lblOficina control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtOficina As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblOficina As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''txtControl control.
+    '''ddlOficina control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtControl As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlOficina As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''btnEnviar control.
+    '''tablaControles control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnEnviar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents tablaControles As Global.System.Web.UI.HtmlControls.HtmlTable
+    
+    '''<summary>
+    '''lblControl control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblControl As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''lblAsignado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAsignado As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''btnAsignar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAsignar As Global.System.Web.UI.WebControls.Button
 End Class
