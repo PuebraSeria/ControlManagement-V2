@@ -141,6 +141,14 @@
     <Content Include="DESARROLLO\JS\bootstrap.min.js" />
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\.gitignore" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\animate.css" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\style.css" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\timelify.css" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\img\pattern.svg" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\index.html" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\js\jquery.timelify.js" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\MIT-LICENCE.txt" />
     <Content Include="Global.asax" />
     <Content Include="Presentation\frm_OFI_ConEstadoReportes.aspx" />
     <Content Include="Presentation\frm_OFI_Historial.aspx" />
@@ -263,6 +271,13 @@
     <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_stacked.scss" />
     <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\_variables.scss" />
     <Content Include="DESARROLLO\Estilos\font-awesome-4.6.3\scss\font-awesome.scss" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\components\timelify\_variables.scss" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\style.css.map" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\style.scss" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\timelify.css.map" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\css\timelify.scss" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\README.md" />
+    <Content Include="DESARROLLO\Simple-Animated-Timeline-Plugin-For-jQuery-Timelify\timelify.jquery.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

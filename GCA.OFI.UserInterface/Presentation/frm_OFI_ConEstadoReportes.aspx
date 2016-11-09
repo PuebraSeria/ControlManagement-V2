@@ -51,13 +51,13 @@
                             <asp:ListItem Value="0">Seleccione</asp:ListItem>
                         </asp:DropDownList>
                         <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>
-                        <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black">
-                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                            <asp:ListItem Value="1">0%</asp:ListItem>
-                            <asp:ListItem Value="2">75%</asp:ListItem>
-                            <asp:ListItem Value="3">90%</asp:ListItem>
-                            <asp:ListItem Value="4">100%</asp:ListItem>
-                            <asp:ListItem Value="5">+100%</asp:ListItem>
+                        <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged">
+                            <asp:ListItem Value="-1">Seleccione</asp:ListItem>
+                            <asp:ListItem Value="0">0%</asp:ListItem>
+                            <asp:ListItem Value="1">75%</asp:ListItem>
+                            <asp:ListItem Value="2">90%</asp:ListItem>
+                            <asp:ListItem Value="3">100%</asp:ListItem>
+                            <asp:ListItem Value="4">+100%</asp:ListItem>
                         </asp:DropDownList>
                     </div>
                     <div class="panel-body">

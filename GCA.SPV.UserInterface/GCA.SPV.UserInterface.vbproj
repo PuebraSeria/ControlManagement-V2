@@ -102,7 +102,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="DESARROLLO\Imagenes\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +138,7 @@
     <Content Include="DESARROLLO\highCharts\exporting.js" />
     <Content Include="DESARROLLO\highCharts\highcharts.js" />
     <Content Include="DESARROLLO\highCharts\jquery.js" />
+    <Content Include="DESARROLLO\Imagenes\spinner.gif" />
     <Content Include="DESARROLLO\JS\bootstrap.min.js" />
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
