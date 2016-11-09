@@ -103,6 +103,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="UploadedFiles\" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -137,6 +138,9 @@
     <Content Include="DESARROLLO\JS\bootstrap.min.js" />
     <Content Include="DESARROLLO\JS\custom.js" />
     <Content Include="DESARROLLO\JS\jquery-1.10.2.js" />
+    <Content Include="DESARROLLO\JS\jquery-1.12.4.js" />
+    <Content Include="DESARROLLO\JS\jquery-2.2.4.js" />
+    <Content Include="DESARROLLO\JS\jquery-ui.js" />
     <Content Include="Global.asax" />
     <Content Include="Presentation\frm_OFI_ConEstadoReportes.aspx" />
     <Content Include="Presentation\frm_OFI_ManEnviarControl.aspx" />

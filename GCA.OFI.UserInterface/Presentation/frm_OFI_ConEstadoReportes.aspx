@@ -36,7 +36,5 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form id="estadoDeLosReportes" runat="server">
-        
-    </form>
+    
 </asp:Content>

@@ -37,7 +37,7 @@ Public Class frm_SPV_CrearControl
         End If
     End Sub
 
-    Protected Sub btnAccept_Click(sender As Object, e As EventArgs)
+    Protected Sub btnAccept_Click(sender As Object, e As EventArgs) Handles btnAccept.Click
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim controlB As New DocControlBusiness(conn)
         If (controlB.existeControl(txtCodigo.Text) = 0) Then
