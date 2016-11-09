@@ -2,12 +2,11 @@
 Imports System.Web.Configuration
 Imports GCA.Business
 
-Public Class frm_OFI_ConEstadoReportes
+Public Class frm_SPV_EstadoOficinaControles
     Inherits System.Web.UI.Page
 
     'Variables globales
     Private conexion As String
-    Private codOficina As String
 
     ''' <summary>
     ''' Función constructora
@@ -17,31 +16,32 @@ Public Class frm_OFI_ConEstadoReportes
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.conexion = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
 
-        'Preguntamos si existe la oficina
-        If Session.Item("codigoOficina") Is Nothing Then
-            Me.codOficina = "1"
-        Else
-            Me.codOficina = CType(Session("codigoOficina"), String)
-        End If
-
         'Preguntamos si es la primera vez en ingresar
         If Not IsPostBack Then
-            llenarDDLControl()
+            llenarDDL()
             llenarTabla()
         End If
     End Sub
     '**************************************** Llenar combos ********************************
     ''' <summary>
-    ''' Función que nos permite llenar el DDL de Controles
+    ''' Función que nos permite llenar los ddl de oficina y control
     ''' </summary>
     ''' <returns></returns>
-    Private Function llenarDDLControl()
+    Private Function llenarDDL()
         Dim oficinaBusiness As New GCA.Business.OficinaBusiness(Me.conexion)
-        Dim informacion = oficinaBusiness.obtenerControlesOficina(Me.codOficina)
+        Dim informacion = oficinaBusiness.obtenerOficinas()
+
+        For Each fila As DataRow In informacion.Tables(0).Rows()
+            ddlOficina.Items.Add(fila(1))
+        Next
+
+        Dim controlBusiness As New GCA.Business.DocControlBusiness(Me.conexion)
+        informacion = controlBusiness.obtenerControles()
 
         For Each fila As DataRow In informacion.Tables(0).Rows()
             ddlControl.Items.Add(fila(1))
         Next
+
     End Function
     '**************************************** Llenar tabla ********************************
     ''' <summary>
@@ -51,19 +51,28 @@ Public Class frm_OFI_ConEstadoReportes
     Private Function llenarTabla()
         cuerpoTabla.InnerHtml = Me.obtenerInformacion
     End Function
+
     ''' <summary>
     ''' Función que nos permite obtener la información de los controles asignados a esta oficina
     ''' </summary>
     ''' <returns></returns>
     Private Function obtenerInformacion() As String
         Dim todaInformacion As String = ""
-        Dim oficinaBusiness As New GCA.Business.OficinaBusiness(Me.conexion)
-        Dim informacion = oficinaBusiness.obtenerControlesOficina(Me.codOficina)
 
+        Dim oficinaBusiness As New GCA.Business.OficinaBusiness(Me.conexion)
+        Dim informacion = oficinaBusiness.obtenerOficinas()
+
+        ' For Each que recorre las oficinas
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            If (Me.validaciones(fila(1), fila(2), fila(5))) Then
-                todaInformacion = todaInformacion & Me.escribirFila(fila(1), fila(0), fila(2), fila(5))
-            End If
+            'ddlOficina.Items.Add(fila(1))
+            Dim controles = oficinaBusiness.obtenerControlesOficina(fila(0))
+
+            'For Each que recorre los controles
+            For Each filaControles As DataRow In controles.Tables(0).Rows()
+                If (Me.validaciones(fila(1), filaControles(1), filaControles(2), filaControles(5))) Then
+                    todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
+                End If
+            Next
         Next
 
         Return todaInformacion
@@ -71,18 +80,23 @@ Public Class frm_OFI_ConEstadoReportes
     ''' <summary>
     ''' Función que se encarga de escribir la fila que posteriormente vamos a agregar a la tabla
     ''' </summary>
-    ''' <param name="nombreControl">Corresponde al nombre que tiene el control</param>
-    ''' <returns></returns>
-    Private Function escribirFila(nombreControl As String, codigoControl As String, periodicidad As String, fechaAsignado As String) As String
+    ''' <param name="nombreOficina">Corresponde al nombre de la oficina</param>
+    ''' <param name="nombreControl">Corresponde al nombre del control</param>
+    ''' <param name="periodicidad">Corresponde al código de la periodicidad</param>
+    ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control a la oficina</param>
+    ''' <returns>Un String con HTML</returns>
+    Private Function escribirFila(nombreOficina As String, nombreControl As String, periodicidad As String, fechaAsignado As String) As String
         Dim temp As String
         Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
-        temp = "
+
+        temp =
+            "
                 <tr>
-                    <td>" + nombreControl + "</td>
+                    <td>" & nombreOficina & "</td>
+                    <td>" & nombreControl & "</td>
                     <td><i class='fa fa-circle' style='color:" + Me.obtenerColorPorcentaje(Integer.Parse(valores(0))) + "'></i></td>
-                    <td>" + IIf(IsDate(valores(1)), valores(1), "Ya pasó") + "</td>
-                    <td><a href='frm_OFI_ManEnviarControl.aspx?control=" + codigoControl + "' class='btn btn-default'>Adjuntar</a></td>
-                </tr>"
+                </tr>
+            "
         Return temp
     End Function
     ''' <summary>
@@ -100,18 +114,47 @@ Public Class frm_OFI_ConEstadoReportes
         Return valores
     End Function
     ''' <summary>
-    ''' Función que se encarga de llevar a cabo las validaciones necesarias
+    ''' Función que nos retorna el color que debemos mostrarle al cliente con base en el 
+    ''' porcentaje del control
     ''' </summary>
-    ''' <param name="nombre">Corresponde a la fila actual del DataSet</param>
-    ''' <returns>Boolean: Indicando si cumplió todos los requisitos o no</returns>
-    Private Function validaciones(nombre As String, periodicidad As String, fechaAsignado As String) As Boolean
+    ''' <param name="porcentaje">Corresponde a un Integer que va a representar los diversos 
+    ''' estados temporales que puede tener el control</param>
+    ''' <returns>Un string: Que posee el color a implementar</returns>
+    Private Function obtenerColorPorcentaje(porcentaje As Integer) As String
+        Dim color As String = ""
+
+        'Inicio del switch
+        Select Case porcentaje
+            Case 0
+                color = "green"
+            Case 1
+                color = "yellow"
+            Case 2
+                color = "orange"
+            Case 3
+                color = "red"
+            Case 4
+                color = "purple"
+        End Select
+        Return color
+    End Function
+    '**************************************** Validaciones ********************************
+    Private Function validaciones(nombreOficina As String, nombreControl As String, periodicidad As String, fechaAsignado As String) As Boolean
         Dim bandera As Boolean = True
         Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
 
         'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
+        If Not (ddlOficina.SelectedItem.ToString() Like "Seleccione") Then
+            'Preguntamos si es distinto al Item seleccionado de controles
+            If Not (nombreOficina Like ddlOficina.SelectedItem.ToString()) Then
+                bandera = False
+            End If
+        End If
+
+        'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
         If Not (ddlControl.SelectedItem.ToString() Like "Seleccione") Then
             'Preguntamos si es distinto al Item seleccionado de controles
-            If Not (nombre Like ddlControl.SelectedItem.ToString()) Then
+            If Not (nombreControl Like ddlControl.SelectedItem.ToString()) Then
                 bandera = False
             End If
         End If
@@ -140,34 +183,17 @@ Public Class frm_OFI_ConEstadoReportes
 
         Return bandera
     End Function
-    ''' <summary>
-    ''' Función que nos retorna el color que debemos mostrarle al cliente con base en el 
-    ''' porcentaje del control
-    ''' </summary>
-    ''' <param name="porcentaje">Corresponde a un Integer que va a representar los diversos 
-    ''' estados temporales que puede tener el control</param>
-    ''' <returns>Un string: Que posee el color a implementar</returns>
-    Private Function obtenerColorPorcentaje(porcentaje As Integer) As String
-        Dim color As String = ""
-
-        'Inicio del switch
-        Select Case porcentaje
-            Case 0
-                color = "green"
-            Case 1
-                color = "yellow"
-            Case 2
-                color = "orange"
-            Case 3
-                color = "red"
-            Case 4
-                color = "purple"
-        End Select
-        Return color
-    End Function
     '**************************************** Eventos **************************************
     ''' <summary>
-    ''' Función que se ejecuta cuando se cambia el control seleccionado
+    ''' Función que se ejecuta cuando se cambia la oficina
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Protected Sub ddlOficina_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Me.llenarTabla()
+    End Sub
+    ''' <summary>
+    ''' Función que se ejecuta cuando se cambia el control
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
@@ -175,11 +201,12 @@ Public Class frm_OFI_ConEstadoReportes
         Me.llenarTabla()
     End Sub
     ''' <summary>
-    ''' Función que se ejecuta cuando se cambia el estado seleccionado
+    ''' Función que se ejecuta cuando se cambia el estado
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Protected Sub ddlEstado_SelectedIndexChanged(sender As Object, e As EventArgs)
         Me.llenarTabla()
     End Sub
+
 End Class

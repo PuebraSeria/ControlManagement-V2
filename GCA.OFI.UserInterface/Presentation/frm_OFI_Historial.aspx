@@ -37,4 +37,19 @@
     Historial de Controles
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
+    <form id="formPruebas" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <asp:Label ID="lblControl" runat="server" Text="Control:" AssociatedControlID="ddlControl"></asp:Label>
+                        <asp:DropDownList ID="ddlControl" runat="server" ForeColor="Black" AutoPostBack="true">
+                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
 </asp:Content>

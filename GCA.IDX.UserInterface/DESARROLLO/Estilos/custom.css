@@ -48,7 +48,6 @@ body {
 }
 
 .sidebar-collapse > .nav > li > a {
-	padding:15px 10px;
     color: #214761;
 font-weight: 900;
 font-size: 16px;
@@ -63,16 +62,17 @@ font-size: 16px;
 	outline:0;
 }
 
-.navbar-side {
+.navbar-side 
+{
 	border:none;
-	background-color: #fff;
+	background-color: #d4e1f5;
 	
 }
-.navbar-inverse {
-
-background-color: #214761;
-border-color: #F0F0F0;
-min-height: 80px;
+.navbar-inverse 
+{
+    background-color: #214761;
+    border-color: #F0F0F0;
+    min-height: 80px;
 }
 
 
@@ -134,6 +134,7 @@ min-height: 80px;
  
  @media(min-width:768px) {
      #page-wrapper{
+               margin: 0 0 0 260px;
         padding: 15px 30px;
         min-height: 1050px;
 		

@@ -60,7 +60,7 @@
                             <asp:ListItem Value="4">+100%</asp:ListItem>
                         </asp:DropDownList>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="max-height:500px; overflow-y: scroll;">
                         <table class="table table-condensed">
                             <thead>
                                 <tr>
