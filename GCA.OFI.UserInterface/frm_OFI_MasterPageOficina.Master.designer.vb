@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class frm_OFI_MasterPageOficina
-
+    
     '''<summary>
     '''head control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class frm_OFI_MasterPageOficina
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents head As Global.System.Web.UI.WebControls.ContentPlaceHolder
-
+    
     '''<summary>
     '''menu control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class frm_OFI_MasterPageOficina
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents menu As Global.System.Web.UI.WebControls.ContentPlaceHolder
-
+    
     '''<summary>
     '''titulo control.
     '''</summary>
@@ -39,16 +39,7 @@ Partial Public Class frm_OFI_MasterPageOficina
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents titulo As Global.System.Web.UI.WebControls.ContentPlaceHolder
-
-    '''<summary>
-    '''form1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents form1 As Global.System.Web.UI.HtmlControls.HtmlForm
-
+    
     '''<summary>
     '''Body control.
     '''</summary>

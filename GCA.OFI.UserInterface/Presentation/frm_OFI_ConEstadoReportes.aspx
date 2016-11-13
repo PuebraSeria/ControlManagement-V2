@@ -38,7 +38,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form id="estadoDeLosReportes">
+    <form id="estadoDeLosReportes" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="upEstadoReportes" runat="server">
             <ContentTemplate>
