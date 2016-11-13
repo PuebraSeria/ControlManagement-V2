@@ -26,8 +26,6 @@
                 <li>
                     <a href="blank.html"><i class="fa fa-edit "></i>Ayuda</a>
                 </li>
-
-
                 <li>
                     <a href="#"><i class="fa fa-qrcode "></i>Salir</a>
                 </li>
@@ -40,7 +38,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form id="estadoDeLosReportes" runat="server">
+    <form id="estadoDeLosReportes">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="upEstadoReportes" runat="server">
             <ContentTemplate>

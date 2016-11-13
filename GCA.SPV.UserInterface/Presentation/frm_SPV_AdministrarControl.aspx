@@ -134,5 +134,4 @@
                       $("input[type=text][id*=txtFechaF]").datepicker();
               } );
               </script>
-    <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
 </asp:Content>

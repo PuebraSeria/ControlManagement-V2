@@ -58,12 +58,12 @@
                 <asp:Label ID="lblSeleccionarEvidencia" runat="server" Text="Seleccione la evidencia que desea cargar: "></asp:Label>
             </div>
             <div class="col-sm-10">
-                <center><asp:FileUpload id="fileUpload" runat="server" /></center>
+               <asp:FileUpload id="fileUpload" runat="server" />
             </div>
         </div>
          <div class="form-group">
             <div class="col-sm-10">
-                <asp:Button runat="server" id="btnSee" Text="Upload" OnClick="btnSee_Click"/>
+                <asp:Button runat="server" id="btnSee" Text="Subir evidencia" OnClick="btnSee_Click"/>
             </div>
         </div>
          <div class="form-group">

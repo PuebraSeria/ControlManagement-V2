@@ -157,7 +157,6 @@
     <Content Include="Presentation\frm_OFI_ConEstadoReportes.aspx" />
     <Content Include="Presentation\frm_OFI_Historial.aspx" />
     <Content Include="Presentation\frm_OFI_ManEnviarControl.aspx" />
-    <Content Include="Presentation\ParaPruebasXD.aspx" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
@@ -212,13 +211,6 @@
     <Compile Include="Presentation\frm_OFI_ManEnviarControl.aspx.vb">
       <DependentUpon>frm_OFI_ManEnviarControl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Presentation\ParaPruebasXD.aspx.designer.vb">
-      <DependentUpon>ParaPruebasXD.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Presentation\ParaPruebasXD.aspx.vb">
-      <DependentUpon>ParaPruebasXD.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

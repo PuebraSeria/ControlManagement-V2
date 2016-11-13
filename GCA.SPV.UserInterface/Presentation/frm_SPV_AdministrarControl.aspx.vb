@@ -70,7 +70,6 @@ Public Class frm_SPV_AdministrarControl
         End If
         control.FechaInicio_DocControl = fechaI.Text
         control.FechaFinal_DocControl = fechaF.Text
-        Label4.Text = control.FechaFinal_DocControl
         controlB.actualizarControl(control)
         gridControl.EditIndex = -1
         Response.Cookies("tipo").Value = 0
