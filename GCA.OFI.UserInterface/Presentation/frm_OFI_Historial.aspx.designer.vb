@@ -57,4 +57,13 @@ Partial Public Class frm_OFI_Historial
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlControl As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''divTimeLine control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents divTimeLine As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 End Class

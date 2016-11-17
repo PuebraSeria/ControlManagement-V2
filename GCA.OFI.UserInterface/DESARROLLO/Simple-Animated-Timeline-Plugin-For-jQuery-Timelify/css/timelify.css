@@ -3,7 +3,6 @@
 
 .timeline {
   position: relative;
-  overflow: auto;
   width: 100%;
   margin-top: 40px; }
   .timeline hr {
