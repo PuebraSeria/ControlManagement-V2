@@ -36,10 +36,10 @@
     <!-- /. NAV SIDE  -->
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">
-    Historial de Controles
+    Historial de Controles Entregados
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <form id="formPruebas" runat="server">
+    <form id="formHistorial" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
@@ -67,6 +67,16 @@
                                 </li>
                             </ul>--%>
                         </div><!-- Fin del div timeline -->
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upEstadoReportes">
+                            <ProgressTemplate>
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
                     </div><!-- Fin del div panel body -->
                 </div><!-- Fin del div panel primary -->
             </ContentTemplate>

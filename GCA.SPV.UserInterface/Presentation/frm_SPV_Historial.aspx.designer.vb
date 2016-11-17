@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class frm_OFI_Historial
+Partial Public Class frm_SPV_Historial
     
     '''<summary>
     '''formHistorial control.
@@ -39,6 +39,24 @@ Partial Public Class frm_OFI_Historial
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    
+    '''<summary>
+    '''lblOficina control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblOficina As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''ddlOficina control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlOficina As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
     '''lblControl control.

@@ -64,15 +64,17 @@ Public Class frm_SPV_EstadoOficinaControles
 
         ' For Each que recorre las oficinas
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            'ddlOficina.Items.Add(fila(1))
-            Dim controles = oficinaBusiness.obtenerControlesOficina(fila(0))
+            'Se valida que la oficina se puede mostrar
+            If (Me.validacionOficina(fila(1))) Then
+                Dim controles = oficinaBusiness.obtenerControlesOficina(fila(0))
 
-            'For Each que recorre los controles
-            For Each filaControles As DataRow In controles.Tables(0).Rows()
-                If (Me.validaciones(fila(1), filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
-                    todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
-                End If
-            Next
+                'For Each que recorre los controles
+                For Each filaControles As DataRow In controles.Tables(0).Rows()
+                    If (Me.validacionControl(filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
+                        todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
+                    End If
+                Next
+            End If
         Next
 
         Return todaInformacion
@@ -141,24 +143,15 @@ Public Class frm_SPV_EstadoOficinaControles
     '**************************************** Validaciones ********************************
     ''' <summary>
     ''' Función que se encarga de realizar las validaciones necesarias para mostrar los controles
-    ''' y oficinas indicadas
+    ''' indicados
     ''' </summary>
-    ''' <param name="nombreOficina">Corresponde al nombre de la oficina</param>
     ''' <param name="nombreControl">Corresponde a la combinación de "código control-nombre control"</param>
     ''' <param name="periodicidad">Corresponde a la períodicidad</param>
     ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control</param>
     ''' <returns></returns>
-    Private Function validaciones(nombreOficina As String, nombreControl As String, periodicidad As String, fechaAsignado As String) As Boolean
+    Private Function validacionControl(nombreControl As String, periodicidad As String, fechaAsignado As String) As Boolean
         Dim bandera As Boolean = True
         Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
-
-        'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
-        If Not (ddlOficina.SelectedItem.ToString() Like "Seleccione") Then
-            'Preguntamos si es distinto al Item seleccionado de controles
-            If Not (nombreOficina Like ddlOficina.SelectedItem.ToString()) Then
-                bandera = False
-            End If
-        End If
 
         'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
         If Not (ddlControl.SelectedItem.ToString() Like "Seleccione") Then
@@ -186,6 +179,24 @@ Public Class frm_SPV_EstadoOficinaControles
             End Select
             'Preguntamos si es distinto al Item seleccionado de controles
             If Not (valores(0) Like valorDDL) Then
+                bandera = False
+            End If
+        End If
+
+        Return bandera
+    End Function
+    ''' <summary>
+    ''' Función que se encarga de validar la oficina
+    ''' </summary>
+    ''' <param name="nombreOficina">Corresponde al nombre de la oficina actual</param>
+    ''' <returns>Boolean: Indicando si se cumple o no las condiciones</returns>
+    Private Function validacionOficina(nombreOficina As String) As Boolean
+        Dim bandera As Boolean = True
+
+        'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
+        If Not (ddlOficina.SelectedItem.ToString() Like "Seleccione") Then
+            'Preguntamos si es distinto al Item seleccionado de controles
+            If Not (nombreOficina Like ddlOficina.SelectedItem.ToString()) Then
                 bandera = False
             End If
         End If

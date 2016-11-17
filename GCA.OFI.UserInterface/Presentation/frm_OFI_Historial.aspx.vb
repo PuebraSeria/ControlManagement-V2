@@ -19,13 +19,13 @@ Public Class frm_OFI_Historial
         'Preguntamos si existe la oficina
         If Session.Item("codigoOficina") Is Nothing Then
             Me.codOficina = "1"
-            Session.Add("annoHistorial", Now.Year)
         Else
             Me.codOficina = CType(Session("codigoOficina"), String)
         End If
 
         'Preguntamos si es la primera vez en ingresar
         If Not IsPostBack Then
+            Session.Add("annoHistorial", Now.Year)
             llenarDDLControl()
             llenarLineaTiempo()
         End If
@@ -73,10 +73,10 @@ Public Class frm_OFI_Historial
 
                     'If de las posiciones
                     If (posicion) Then
-                        todaInformacion = todaInformacion & Me.escribirFila(filaControles(0) + "-" + filaControles(1), filaEntrega(1), "timeline-item")
+                        todaInformacion = todaInformacion & Me.escribirHitoTiempo(filaControles(0) + "-" + filaControles(1), filaEntrega(1), "timeline-item")
                         posicion = False
                     Else
-                        todaInformacion = todaInformacion & Me.escribirFila(filaControles(0) + "-" + filaControles(1), filaEntrega(1), "timeline-item inverted")
+                        todaInformacion = todaInformacion & Me.escribirHitoTiempo(filaControles(0) + "-" + filaControles(1), filaEntrega(1), "timeline-item inverted")
                         posicion = True
                     End If
 
@@ -113,7 +113,7 @@ Public Class frm_OFI_Historial
     ''' <param name="fechaEntrega">Corresponde a la fecha en que se entregó</param>
     ''' <param name="posicion">Corresponde a la posición que debe tener en la línea de tiempo</param>
     ''' <returns>Un String con código HTML</returns>
-    Private Function escribirFila(nombreControl As String, fechaEntrega As String, posicion As String) As String
+    Private Function escribirHitoTiempo(nombreControl As String, fechaEntrega As String, posicion As String) As String
         Dim temp As String = ""
         Dim tempFecha As Integer = DatePart(DateInterval.Year, Date.Parse(fechaEntrega))
 

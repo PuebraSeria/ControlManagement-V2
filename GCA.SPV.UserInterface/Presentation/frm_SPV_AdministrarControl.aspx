@@ -26,6 +26,9 @@
                          <li>
                             <a href="frm_SPV_AsignarControl.aspx">Asignar control</a>
                         </li>
+                         <li>
+                            <a href="frm_SPV_Historial.aspx">Historial de Controles Entregados</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
