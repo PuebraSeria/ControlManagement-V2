@@ -14,6 +14,33 @@ Option Explicit On
 Partial Public Class frm_SPV_AdministrarSupervisor
     
     '''<summary>
+    '''administrarSupervisor control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents administrarSupervisor As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    
+    '''<summary>
     '''gridSupervisor control.
     '''</summary>
     '''<remarks>
@@ -21,4 +48,13 @@ Partial Public Class frm_SPV_AdministrarSupervisor
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gridSupervisor As Global.System.Web.UI.WebControls.GridView
+    
+    '''<summary>
+    '''UpdateProgress1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
 End Class

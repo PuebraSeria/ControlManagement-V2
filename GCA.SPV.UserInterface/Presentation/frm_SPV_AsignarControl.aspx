@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/frm_SPV_MasterPageSupervisor.Master" CodeBehind="frm_SPV_AsignarControl.aspx.vb" Inherits="GCA.SPV.UserInterface.frm_SPV_AsginarControl" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="../DESARROLLO/Estilos/font-awesome-4.6.3/css/font-awesome.min.css" />
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -57,48 +59,47 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="titulo" runat="server">Asignar Control</asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-      <table style="width: 100%;"  runat ="server"  >
-                         <tr>
-                            <td>
-                                <br />
-                                <asp:Label ForeColor="Red"  ID="lblMensaje" runat="server" Text=""></asp:Label><br />
-                            </td>
-                        </tr>
-                         <tr>
-                            <td>
-                                <asp:Label ID="lblOficina" runat="server" Text="Oficina: "></asp:Label>
-                                 <br />
-                                <asp:DropDownList ID="ddlOficina" runat="server" OnSelectedIndexChanged ="ddlOficina_SelectedIndexChanged" AutoPostBack ="true"   >
-                                </asp:DropDownList>
-                                <br />
-                            </td>
-                        </tr>
-                    </table>
-            <br/>
-            <br/>
-          <table style="width: 50%; margin-left :25%;" id="tablaControles" runat ="server"   >
-                         <tr>
-                            <td  style="border : 1px solid #214761">
-                                <asp:Label ID="lblControl" runat="server" Text="Control"></asp:Label>
-                                 <br />
-                            </td>
-                              <td style="border : 1px solid #214761">
-                                <asp:Label ID="lblAsignado" runat="server" Text="Asignado"></asp:Label>
-                                 <br />
-                            </td>
-                        </tr>
-                    </table>
-                              <table style="width: 50%; margin-left :25%;" runat ="server"   >
-                         <tr>
-                            <td  style="width: 50%;">
-                                <br />
-                                 <br />
-                            </td>
-                              <td style="width: 50%;" >
-                                <br />
-                                  <asp:Button ID="btnAsignar" runat="server" OnClick ="btnAsignar_Click"   Text ="Actualizar" Height="49px" Width="200px"  />
-                                 <br />
-                            </td>
-                        </tr>
-                    </table>
+    <form id="asignarControl" runat="server" class="form-horizontal">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <asp:Label ID="lblOficina" runat="server" Text="Oficina:" AssociatedControlID="ddlOficina"></asp:Label>
+                        <asp:DropDownList ID="ddlOficina" runat="server" OnSelectedIndexChanged ="ddlOficina_SelectedIndexChanged" 
+                            AutoPostBack ="true" ForeColor="Black" ></asp:DropDownList>
+                        <asp:Button ID="btnAsignar" runat="server" OnClick ="btnAsignar_Click" Text ="Actualizar" CssClass="btn btn-default"/>
+                    </div>
+                    <div class="panel-body" style="max-height:500px; overflow-y: scroll;">
+                        <div class="form-group">
+                            <asp:Label ForeColor="Red"  ID="lblMensaje" CssClass="control-label col-sm-2" runat="server" Text=""></asp:Label>
+                        </div>
+                        <table id="tablaControles" runat ="server" class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th><asp:Label ID="lblControl" runat="server" Text="Control"></asp:Label></th>
+                                    <th><asp:Label ID="lblAsignado" runat="server" Text="Asignado"></asp:Label></th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                        <ProgressTemplate>
+                            <div class="form-group">
+                                <div class="text-center">
+                                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                            </div>
+                        </ProgressTemplate>
+                    </asp:UpdateProgress>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
+
+    <!-- Scripts necesarios -->
+    <script src="../DESARROLLO/JS/jquery-1.10.2.js"></script>
+    <script src="../DESARROLLO/JS/bootstrap.min.js"></script>
+    <script src="../DESARROLLO/JS/custom.js"></script>
 </asp:Content>

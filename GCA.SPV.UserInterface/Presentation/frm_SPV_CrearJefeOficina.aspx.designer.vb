@@ -14,6 +14,42 @@ Option Explicit On
 Partial Public Class frm_SPV_CrearJefeOficina
     
     '''<summary>
+    '''crearJefeOficina control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents crearJefeOficina As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+    
+    '''<summary>
+    '''btnAccept control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAccept As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''lblMensaje control.
     '''</summary>
     '''<remarks>
@@ -194,11 +230,11 @@ Partial Public Class frm_SPV_CrearJefeOficina
     Protected WithEvents ddlOficina As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
-    '''btnAccept control.
+    '''UpdateProgress1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAccept As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
 End Class

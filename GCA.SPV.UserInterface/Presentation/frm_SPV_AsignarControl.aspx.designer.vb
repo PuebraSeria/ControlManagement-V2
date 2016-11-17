@@ -14,13 +14,31 @@ Option Explicit On
 Partial Public Class frm_SPV_AsginarControl
     
     '''<summary>
-    '''lblMensaje control.
+    '''asignarControl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents asignarControl As Global.System.Web.UI.HtmlControls.HtmlForm
+    
+    '''<summary>
+    '''ScriptManager1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager1 As Global.System.Web.UI.ScriptManager
+    
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
     
     '''<summary>
     '''lblOficina control.
@@ -39,6 +57,24 @@ Partial Public Class frm_SPV_AsginarControl
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlOficina As Global.System.Web.UI.WebControls.DropDownList
+    
+    '''<summary>
+    '''btnAsignar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAsignar As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''lblMensaje control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblMensaje As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
     '''tablaControles control.
@@ -68,11 +104,11 @@ Partial Public Class frm_SPV_AsginarControl
     Protected WithEvents lblAsignado As Global.System.Web.UI.WebControls.Label
     
     '''<summary>
-    '''btnAsignar control.
+    '''UpdateProgress1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAsignar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents UpdateProgress1 As Global.System.Web.UI.UpdateProgress
 End Class

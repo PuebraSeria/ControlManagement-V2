@@ -61,60 +61,60 @@
     Estado de los Controles
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <asp:Label ID="lblOficina" runat="server" Text="Oficina:" AssociatedControlID="ddlOficina"></asp:Label>
-                    <asp:DropDownList ID="ddlOficina" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlOficina_SelectedIndexChanged">
-                        <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:Label ID="lblControl" runat="server" Text="Control:" AssociatedControlID="ddlControl"></asp:Label>
-                    <asp:DropDownList ID="ddlControl" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlControl_SelectedIndexChanged">
-                        <asp:ListItem Value="0">Seleccione</asp:ListItem>
-                    </asp:DropDownList>
-                    <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>
-                    <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged">
-                        <asp:ListItem Value="-1">Seleccione</asp:ListItem>
-                        <asp:ListItem Value="0">0%</asp:ListItem>
-                        <asp:ListItem Value="1">75%</asp:ListItem>
-                        <asp:ListItem Value="2">90%</asp:ListItem>
-                        <asp:ListItem Value="3">100%</asp:ListItem>
-                        <asp:ListItem Value="4">+100%</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <div class="panel-body" style="max-height:500px; overflow-y: scroll;">
-                    <table class="table table-condensed">
-                        <thead>
-                            <tr>
-                                <th>Oficina:</th>
-                                <th>Control:</th>
-                                <th>Estado:</th>
-                            </tr>
-                        </thead>
-                        <tbody id="cuerpoTabla" runat="server">
-                        </tbody>
-                    </table>
-                    <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
-                        <ProgressTemplate>
-                            <div class="text-center">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-                                    <span class="sr-only">Loading...</span>
+    <form id="estadoControles" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <asp:Label ID="lblOficina" runat="server" Text="Oficina:" AssociatedControlID="ddlOficina"></asp:Label>
+                        <asp:DropDownList ID="ddlOficina" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlOficina_SelectedIndexChanged">
+                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="lblControl" runat="server" Text="Control:" AssociatedControlID="ddlControl"></asp:Label>
+                        <asp:DropDownList ID="ddlControl" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlControl_SelectedIndexChanged">
+                            <asp:ListItem Value="0">Seleccione</asp:ListItem>
+                        </asp:DropDownList>
+                        <asp:Label ID="lblEstado" runat="server" Text="Estado:" AssociatedControlID="ddlEstado"></asp:Label>
+                        <asp:DropDownList ID="ddlEstado" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged">
+                            <asp:ListItem Value="-1">Seleccione</asp:ListItem>
+                            <asp:ListItem Value="0">0%</asp:ListItem>
+                            <asp:ListItem Value="1">75%</asp:ListItem>
+                            <asp:ListItem Value="2">90%</asp:ListItem>
+                            <asp:ListItem Value="3">100%</asp:ListItem>
+                            <asp:ListItem Value="4">+100%</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+                    <div class="panel-body" style="max-height:500px; overflow-y: scroll;">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th>Oficina:</th>
+                                    <th>Control:</th>
+                                    <th>Estado:</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpoTabla" runat="server">
+                            </tbody>
+                        </table>
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
+                            <ProgressTemplate>
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </ProgressTemplate>
-                    </asp:UpdateProgress>
+                            </ProgressTemplate>
+                        </asp:UpdateProgress>
+                    </div>
                 </div>
-            </div>
-        </ContentTemplate>
-    </asp:UpdatePanel>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+    </form>
 
-    <!-- BOOTSTRAP SCRIPTS -->
+    <!-- Scripts necesarios -->
+    <script src="../DESARROLLO/JS/jquery-1.10.2.js"></script>
     <script src="../DESARROLLO/JS/bootstrap.min.js"></script>
-    <!-- CUSTOM SCRIPTS -->
     <script src="../DESARROLLO/JS/custom.js"></script>
-    <!-- JQUERY SCRIPTS -->
-    <script src="DESARROLLO/JS/jquery-1.10.2.js"></script>
 </asp:Content>

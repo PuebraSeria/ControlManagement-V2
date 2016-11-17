@@ -73,8 +73,8 @@
                         </table>
                         <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upEstadoReportes">
                             <ProgressTemplate>
-                                <div class="text-center">
-                                    <div class="col-sm-offset-2 col-sm-10">
+                                <div class="form-group">
+                                    <div class="text-center">
                                         <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
                                         <span class="sr-only">Loading...</span>
                                     </div>

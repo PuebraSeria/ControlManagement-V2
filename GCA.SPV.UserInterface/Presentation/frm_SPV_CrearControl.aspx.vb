@@ -1,23 +1,28 @@
 ﻿Imports System.Web.Configuration
 Imports GCA.Business
 Imports GCA.Domain
-
 Public Class frm_SPV_CrearControl
     Inherits System.Web.UI.Page
+
+    'Atributos globales
     Public check As CheckBox
-    Public label As Label 
+    Public label As Label
+    ''' <summary>
+    ''' Función constructora
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
-            Dim periodo As New PeriodoBusiness(conn)
-            Dim dsPeriodo As DataSet = periodo.obtenerPeriodos()
-            ddlPeriocidad.DataSource = dsPeriodo
-            ddlPeriocidad.DataTextField = "TC_Nombre_Periodo"
-            ddlPeriocidad.DataValueField = "TN_Id_Periodo"
+        Dim periodo As New PeriodoBusiness(conn)
+        Dim dsPeriodo As DataSet = periodo.obtenerPeriodos()
+        ddlPeriocidad.DataSource = dsPeriodo
+        ddlPeriocidad.DataTextField = "TC_Nombre_Periodo"
+        ddlPeriocidad.DataValueField = "TN_Id_Periodo"
         ddlPeriocidad.DataBind()
         If Not Page.IsPostBack Then
-            tableA.Rows.RemoveAt(5)
-            tableA.Rows.RemoveAt(5)
+            divPorFechas.Visible = False
         End If
 
         Dim cookie As HttpCookie = Request.Cookies("mensaje")
@@ -56,14 +61,20 @@ Public Class frm_SPV_CrearControl
             Response.Redirect("./frm_SPV_CrearControl.aspx")
         End If
     End Sub
-
+    ''' <summary>
+    ''' Función que se ejecuta cuando se cambia el item seleccionado en el ddl de tipos de
+    ''' controles
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub ddlEscoge_SelectedIndexChanged(sender As Object, e As EventArgs)
         Dim valor = Int32.Parse(ddlEscoge.SelectedValue)
         If (valor = 1) Then
-            tableA.Rows.RemoveAt(5)
-            tableA.Rows.RemoveAt(5)
+            divPorFechas.Visible = False
+            divPeriodicidad.Visible = True
         ElseIf (valor = 2) Then
-            tableA.Rows.RemoveAt(4)
+            divPeriodicidad.Visible = False
+            divPorFechas.Visible = True
         End If
     End Sub
 End Class
