@@ -40,7 +40,7 @@ Public Class frm_OFI_ConEstadoReportes
         Dim informacion = oficinaBusiness.obtenerControlesOficina(Me.codOficina)
 
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            ddlControl.Items.Add(fila(1))
+            ddlControl.Items.Add(fila(0) + "-" + fila(1))
         Next
     End Function
     '**************************************** Llenar tabla ********************************
@@ -61,7 +61,7 @@ Public Class frm_OFI_ConEstadoReportes
         Dim informacion = oficinaBusiness.obtenerControlesOficina(Me.codOficina)
 
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            If (Me.validaciones(fila(1), fila(2), fila(5))) Then
+            If (Me.validaciones(fila(0) + "-" + fila(1), fila(2), fila(5))) Then
                 todaInformacion = todaInformacion & Me.escribirFila(fila(1), fila(0), fila(2), fila(5))
             End If
         Next

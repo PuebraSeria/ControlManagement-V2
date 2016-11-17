@@ -39,7 +39,7 @@ Public Class frm_SPV_EstadoOficinaControles
         informacion = controlBusiness.obtenerControles()
 
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            ddlControl.Items.Add(fila(1))
+            ddlControl.Items.Add(fila(0) + "-" + fila(1))
         Next
 
     End Function
@@ -69,7 +69,7 @@ Public Class frm_SPV_EstadoOficinaControles
 
             'For Each que recorre los controles
             For Each filaControles As DataRow In controles.Tables(0).Rows()
-                If (Me.validaciones(fila(1), filaControles(1), filaControles(2), filaControles(5))) Then
+                If (Me.validaciones(fila(1), filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
                     todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
                 End If
             Next
@@ -139,6 +139,15 @@ Public Class frm_SPV_EstadoOficinaControles
         Return color
     End Function
     '**************************************** Validaciones ********************************
+    ''' <summary>
+    ''' Función que se encarga de realizar las validaciones necesarias para mostrar los controles
+    ''' y oficinas indicadas
+    ''' </summary>
+    ''' <param name="nombreOficina">Corresponde al nombre de la oficina</param>
+    ''' <param name="nombreControl">Corresponde a la combinación de "código control-nombre control"</param>
+    ''' <param name="periodicidad">Corresponde a la períodicidad</param>
+    ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control</param>
+    ''' <returns></returns>
     Private Function validaciones(nombreOficina As String, nombreControl As String, periodicidad As String, fechaAsignado As String) As Boolean
         Dim bandera As Boolean = True
         Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
