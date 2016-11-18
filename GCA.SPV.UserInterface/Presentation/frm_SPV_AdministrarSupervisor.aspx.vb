@@ -52,10 +52,10 @@ Public Class frm_SPV_AdministrarSupervisor
         Dim codigo As String = gridSupervisor.Rows(e.RowIndex).Cells(1).Text
         Dim DNI As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(2).Controls(0), TextBox)
         Dim contrasenna As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
-        Dim nombre As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
-        Dim apellido1 As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
-        Dim apellido2 As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
-        Dim email As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
+        Dim nombre As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(4).Controls(0), TextBox)
+        Dim apellido1 As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(5).Controls(0), TextBox)
+        Dim apellido2 As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(6).Controls(0), TextBox)
+        Dim email As TextBox = DirectCast(gridSupervisor.Rows(e.RowIndex).Cells(7).Controls(0), TextBox)
         super.Codigo = codigo
         super.DNI = Integer.Parse(DNI.Text)
         super.Contraseña = contrasenna.Text

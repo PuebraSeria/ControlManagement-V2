@@ -23,6 +23,7 @@ Public Class frm_SPV_CrearControl
         ddlPeriocidad.DataBind()
         If Not Page.IsPostBack Then
             divPorFechas.Visible = False
+
         End If
 
         Dim cookie As HttpCookie = Request.Cookies("mensaje")
@@ -76,5 +77,6 @@ Public Class frm_SPV_CrearControl
             divPeriodicidad.Visible = False
             divPorFechas.Visible = True
         End If
+
     End Sub
 End Class

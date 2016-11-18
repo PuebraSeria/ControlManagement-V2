@@ -30,7 +30,7 @@ Public Class frm_IDX_Index
         Dim supervisorBusiness As New SupervisorBusiness(Me.connection)
 
         'If (txtCodigo.Text Like "Ofi") Then
-        If (jefeOficinaBusiness.existeJefeOficina(txtCodigo.Text)) Then
+        If (jefeOficinaBusiness.existeJefeOficina(txtCodigo.Text, txtContrasenna.Text)) Then
             'Obtenemos la oficina
             Dim jefeOficina As JefeOficina = jefeOficinaBusiness.obtenerJefeOficinaCodigo(txtCodigo.Text)
             Session.Add("codigoOficina", jefeOficina.Oficina().Codigo())
@@ -38,7 +38,7 @@ Public Class frm_IDX_Index
         End If
 
         'If (txtCodigo.Text Like "Sup") Then
-        If (supervisorBusiness.existeSupervisor(txtCodigo.Text)) Then
+        If (supervisorBusiness.existeSupervisor(txtCodigo.Text, txtContrasenna.Text)) Then
             MyClass.Response.Redirect("http://localhost:49327/Presentation/frm_SPV_ConEstadoDeControles.aspx", True)
         End If
     End Sub

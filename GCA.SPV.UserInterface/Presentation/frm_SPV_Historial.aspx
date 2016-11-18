@@ -6,7 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
-    <nav class="navbar-default navbar-side" role="navigation">
+       <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
            <ul class="nav" id="main-menu">
                <!-- Controles-->
@@ -21,6 +21,9 @@
                         </li>
                         <li >
                             <a href="frm_SPV_CrearControl.aspx">Crear control</a>
+                        </li>
+                        <li >
+                            <a href="frm_SPV_AdministrarControl.aspx">Gestionar Controles</a>
                         </li>
                          <li>
                             <a href="frm_SPV_AsignarControl.aspx">Asignar control</a>
@@ -83,7 +86,7 @@
                 <li>
                     <a href="#"><i class="fa fa-table "></i>Salir</a>
                 </li>
-           </ul>
+            </ul>
         </div>
     </nav>
 </asp:Content>

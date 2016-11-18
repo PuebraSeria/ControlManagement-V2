@@ -26,7 +26,7 @@ Public Class frm_SPV_CrearJefeOficina
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim oficina As New OficinaBusiness(conn)
         Dim jefeB As New JefeOficinaBusiness(conn)
-        If (jefeB.existeJefeOficina(txtCodigo.Text) = 0) Then
+        If (jefeB.existeJefeOficinaV(txtCodigo.Text) = 0) Then
             Dim jefe As New JefeOficina()
             jefe.Codigo = txtCodigo.Text
             jefe.DNI = txtDni.Text
