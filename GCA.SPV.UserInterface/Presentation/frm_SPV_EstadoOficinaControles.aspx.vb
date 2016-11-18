@@ -75,11 +75,7 @@ Public Class frm_SPV_EstadoOficinaControles
                     For Each filaControles As DataRow In controles.Tables(0).Rows()
                         If (Me.validacionControl(filaControles)) Then
                             todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles)
-                            'todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
                         End If
-                        'If (Me.validacionControl(filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
-                        '    todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
-                        'End If
                     Next
                 End If
             End If
