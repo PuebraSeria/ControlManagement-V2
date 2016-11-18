@@ -60,37 +60,54 @@ Public Class frm_SPV_EstadoOficinaControles
         Dim todaInformacion As String = ""
 
         Dim oficinaBusiness As New GCA.Business.OficinaBusiness(Me.conexion)
-        Dim informacion = oficinaBusiness.obtenerOficinas()
+        Dim informacion As DataSet
+        informacion = oficinaBusiness.obtenerOficinas()
 
         ' For Each que recorre las oficinas
         For Each fila As DataRow In informacion.Tables(0).Rows()
-            'Se valida que la oficina se puede mostrar
-            If (Me.validacionOficina(fila(1))) Then
-                Dim controles = oficinaBusiness.obtenerControlesOficina(fila(0))
 
-                'For Each que recorre los controles
-                For Each filaControles As DataRow In controles.Tables(0).Rows()
-                    If (Me.validacionControl(filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
-                        todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
-                    End If
-                Next
+            If (Not IsDBNull(fila(0))) Then
+                'Se valida que la oficina se puede mostrar
+                If (Me.validacionOficina(fila(1))) Then
+                    Dim controles As DataSet
+                    controles = oficinaBusiness.obtenerControlesOficina(fila(0))
+                    'For Each que recorre los controles
+                    For Each filaControles As DataRow In controles.Tables(0).Rows()
+                        If (Me.validacionControl(filaControles)) Then
+                            todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles)
+                            'todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
+                        End If
+                        'If (Me.validacionControl(filaControles(0) + "-" + filaControles(1), filaControles(2), filaControles(5))) Then
+                        '    todaInformacion = todaInformacion & Me.escribirFila(fila(1), filaControles(1), filaControles(2), filaControles(5))
+                        'End If
+                    Next
+                End If
             End If
         Next
 
         Return todaInformacion
     End Function
     ''' <summary>
-    ''' Función que se encarga de escribir la fila que posteriormente vamos a agregar a la tabla
+    ''' Función que nos permite escribir la fila en la tabla
     ''' </summary>
     ''' <param name="nombreOficina">Corresponde al nombre de la oficina</param>
-    ''' <param name="nombreControl">Corresponde al nombre del control</param>
-    ''' <param name="periodicidad">Corresponde al código de la periodicidad</param>
-    ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control a la oficina</param>
-    ''' <returns>Un String con HTML</returns>
-    Private Function escribirFila(nombreOficina As String, nombreControl As String, periodicidad As String, fechaAsignado As String) As String
+    ''' <param name="filaControles">Corresponde a la información del control</param>
+    ''' <returns>String: Contiene el código HTML necesario para ingresarlo en la tabla</returns>
+    Private Function escribirFila(nombreOficina As String, filaControles As DataRow) As String
         Dim temp As String
-        Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
 
+        Dim valores
+
+        'Preguntamos si tiene periodicidad o no
+        If (Not IsDBNull(filaControles(2))) Then
+            valores = (Me.obtenerValoresPeriodicidad(filaControles(2), filaControles(5), True)).Split(";")
+        Else
+            Dim fechaInicial As Date = filaControles(3).ToString()
+            Dim fechaFinal As Date = filaControles(4).ToString()
+            Dim diffDias As Integer = DateDiff(DateInterval.Day, fechaInicial, fechaFinal)
+            valores = (Me.obtenerValoresPeriodicidad(diffDias, filaControles(5), False)).Split(";")
+        End If
+        Dim nombreControl = filaControles(0) & "-" & filaControles(1)
         temp =
             "
                 <tr>
@@ -102,17 +119,27 @@ Public Class frm_SPV_EstadoOficinaControles
         Return temp
     End Function
     ''' <summary>
-    ''' Función que nos permite obtener la períodicidad de un control
+    ''' Función que nos permite obtener los valores de tiempo (porcentaje de tiempo que ha pasado)
+    ''' y la fecha de entrega
     ''' </summary>
-    ''' <param name="periodicidad">Corresponde a código de períodicidad que tiene el control</param>
-    ''' <param name="fechaAsignado">Corresponde a la fecha en que se asignó el control a la oficina</param>
-    ''' <returns>String: Que contiene el porcentaje de tiempo que ha pasado, y la fecha en que debe entregar el control</returns>
-    Private Function obtenerValoresPeriodicidad(periodicidad As String, fechaAsignado As String) As String
-        Dim periodoBusiness As New GCA.Business.PeriodoBusiness(Me.conexion)
-        Dim periodo = periodoBusiness.obtenerPeriodoCodigo(Integer.Parse(periodicidad))
+    ''' <param name="periodicidad">Corresponde al código de periodicidad</param>
+    ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control</param>
+    ''' <param name="porPeriodo">Indica si es por periodos (True) o por fechas (False)</param>
+    ''' <returns>String[]: Que contiene el porcentaje de tiempo que ha pasado y la fecha de
+    ''' entrega</returns>
+    Private Function obtenerValoresPeriodicidad(periodicidad As String, fechaAsignado As String, porPeriodo As Boolean) As String
         Dim controlBusiness As New GCA.Business.DocControlBusiness(Me.conexion)
-        Dim tempFecha As Date = fechaAsignado
-        Dim valores As String = controlBusiness.obtenerPorcentajeFecha(tempFecha.Day & "-" & tempFecha.Month & "-" & tempFecha.Year & "," & periodo.Dias)
+        Dim valores As String
+
+        If (porPeriodo) Then
+            Dim periodoBusiness As New GCA.Business.PeriodoBusiness(Me.conexion)
+            Dim periodo = periodoBusiness.obtenerPeriodoCodigo(Integer.Parse(periodicidad))
+            Dim tempFecha As Date = fechaAsignado
+            valores = controlBusiness.obtenerPorcentajeFecha(tempFecha.Day & "-" & tempFecha.Month & "-" & tempFecha.Year & "," & periodo.Dias)
+        Else
+            Dim tempFecha As Date = fechaAsignado
+            valores = controlBusiness.obtenerPorcentajeFecha(tempFecha.Day & "-" & tempFecha.Month & "-" & tempFecha.Year & "," & periodicidad)
+        End If
         Return valores
     End Function
     ''' <summary>
@@ -142,20 +169,29 @@ Public Class frm_SPV_EstadoOficinaControles
     End Function
     '**************************************** Validaciones ********************************
     ''' <summary>
-    ''' Función que se encarga de realizar las validaciones necesarias para mostrar los controles
-    ''' indicados
+    ''' Función que se encarga de realizar las validaciones necesarias para mostrar o no
+    ''' un control
     ''' </summary>
-    ''' <param name="nombreControl">Corresponde a la combinación de "código control-nombre control"</param>
-    ''' <param name="periodicidad">Corresponde a la períodicidad</param>
-    ''' <param name="fechaAsignado">Corresponde a la fecha en que fue asignado el control</param>
-    ''' <returns></returns>
-    Private Function validacionControl(nombreControl As String, periodicidad As String, fechaAsignado As String) As Boolean
+    ''' <param name="filaControles">Corresponde a la información del control</param>
+    ''' <returns>Boolean: Indicando si cumple o no las condiciones</returns>
+    Private Function validacionControl(filaControles As DataRow) As Boolean
         Dim bandera As Boolean = True
-        Dim valores = (Me.obtenerValoresPeriodicidad(periodicidad, fechaAsignado)).Split(";")
+        Dim valores
+
+        'Preguntamos si tiene periodicidad o no
+        If (Not IsDBNull(filaControles(2))) Then
+            valores = (Me.obtenerValoresPeriodicidad(filaControles(2), filaControles(5), True)).Split(";")
+        Else
+            Dim fechaInicial As Date = filaControles(3).ToString()
+            Dim fechaFinal As Date = filaControles(4).ToString()
+            Dim diffDias As Integer = DateDiff(DateInterval.Day, fechaInicial, fechaFinal)
+            valores = (Me.obtenerValoresPeriodicidad(diffDias, filaControles(5), False)).Split(";")
+        End If
 
         'Preguntamos que la opción seleccionada sea diferente a "Seleccione"
         If Not (ddlControl.SelectedItem.ToString() Like "Seleccione") Then
             'Preguntamos si es distinto al Item seleccionado de controles
+            Dim nombreControl = filaControles(0) & "-" & filaControles(1)
             If Not (nombreControl Like ddlControl.SelectedItem.ToString()) Then
                 bandera = False
             End If

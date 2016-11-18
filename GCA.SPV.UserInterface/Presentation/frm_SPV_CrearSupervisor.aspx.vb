@@ -15,7 +15,7 @@ Public Class frm_SPV_CrearSupervisor
     Protected Sub btnAccept_Click(sender As Object, e As EventArgs)
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim superB As New SupervisorBusiness(conn)
-        If (superB.existeSupervisor(txtCodigo.Text) = 0) Then
+        If (superB.existeSupervisor(txtCodigo.Text, txtContrasenna.Text) = 0) Then
             Dim supervisor As New Supervisor()
             supervisor.Codigo = txtCodigo.Text
             supervisor.DNI = txtDni.Text

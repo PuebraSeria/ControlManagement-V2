@@ -121,7 +121,7 @@ Public Class frm_OFI_ManEnviarControl
     End Sub
 
     Protected Sub btnSee_Click(sender As Object, e As EventArgs) Handles btnSee.Click
-        Dim path As String = Server.MapPath("~/UploadedFiles/")
+        Dim path As String = Server.MapPath("../UploadedFiles/")
         Dim fileOK As Boolean = False
         If fileUpload.HasFile Then
             Dim fileExtension As String
