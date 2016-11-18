@@ -52,7 +52,6 @@ Public Class frm_SPV_Administrar_Periodo
         Dim id As Integer = Int32.Parse(gridPeriodo.Rows(e.RowIndex).Cells(1).Text)
         Dim nombre As TextBox = DirectCast(gridPeriodo.Rows(e.RowIndex).Cells(2).Controls(0), TextBox)
         Dim dias As TextBox = DirectCast(gridPeriodo.Rows(e.RowIndex).Cells(3).Controls(0), TextBox)
-
         periodo.Id = id
         periodo.Nombre = nombre.Text
         periodo.Dias = Int32.Parse(dias.Text)
@@ -67,7 +66,6 @@ Public Class frm_SPV_Administrar_Periodo
 
     Protected Sub gridPeriodo_RowEditing(sender As Object, e As GridViewEditEventArgs)
         gridPeriodo.EditIndex = e.NewEditIndex
-
         fillGrid()
     End Sub
 
