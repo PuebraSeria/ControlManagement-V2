@@ -16,6 +16,11 @@ Public Class frm_IDX_Index
     ''' <param name="e"></param>
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.connection = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
+        Dim cookie As HttpCookie = Request.Cookies("mensaje")
+        If cookie IsNot Nothing Then
+            lblMensaje.Text = Request.Cookies("mensaje").Value
+            lblMensaje.Visible = True
+        End If
     End Sub
     ''' <summary>
     ''' Función que se ejecuta cuando se hace clic
@@ -28,18 +33,17 @@ Public Class frm_IDX_Index
 
         Dim jefeOficinaBusiness As New JefeOficinaBusiness(Me.connection)
         Dim supervisorBusiness As New SupervisorBusiness(Me.connection)
-
-        'If (txtCodigo.Text Like "Ofi") Then
         If (jefeOficinaBusiness.existeJefeOficina(txtCodigo.Text, txtContrasenna.Text)) Then
             'Obtenemos la oficina
             Dim jefeOficina As JefeOficina = jefeOficinaBusiness.obtenerJefeOficinaCodigo(txtCodigo.Text)
             Session.Add("codigoOficina", jefeOficina.Oficina().Codigo())
-            MyClass.Response.Redirect("http://localhost:49338/Presentation/frm_OFI_ConEstadoReportes.aspx", True)
+            Response.Redirect("http://localhost:49338/Presentation/frm_OFI_ConEstadoReportes.aspx")
         End If
-
-        'If (txtCodigo.Text Like "Sup") Then
         If (supervisorBusiness.existeSupervisor(txtCodigo.Text, txtContrasenna.Text)) Then
-            MyClass.Response.Redirect("http://localhost:49327/Presentation/frm_SPV_ConEstadoDeControles.aspx", True)
+            Response.Redirect("http://localhost:49327/Presentation/frm_SPV_ConEstadoDeControles.aspx")
         End If
+        Response.Cookies("mensaje").Value = "No existe este usuario."
+        Response.Cookies("mensaje").Expires = DateTime.Now.AddSeconds(5)
+        Response.Redirect("./frm_IDX_Index.aspx")
     End Sub
 End Class

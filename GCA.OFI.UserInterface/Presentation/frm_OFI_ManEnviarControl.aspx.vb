@@ -138,7 +138,7 @@ Public Class frm_OFI_ManEnviarControl
                 Try
                     fileUpload.PostedFile.SaveAs(path &
                          fileUpload.FileName)
-                    Dim entrega As Entrega = New Entrega("1", ddlControl.SelectedValue, path & fileUpload.FileName, obtenerPeriodo())
+                    Dim entrega As Entrega = New Entrega("1", ddlControl.SelectedValue, fileUpload.FileName, obtenerPeriodo())
                     Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
                     Dim entregaB As EntregaBusiness = New EntregaBusiness(conn)
                     Dim oficinaB As OficinaBusiness = New OficinaBusiness(conn)

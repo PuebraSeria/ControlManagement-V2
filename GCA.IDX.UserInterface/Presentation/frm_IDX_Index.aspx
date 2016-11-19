@@ -10,6 +10,13 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
+            <div class="form-group">
+                <div style="margin-left :20%">
+                    <asp:Label ID="lblMensaje" runat="server"  Visible="false"
+                        CssClass="alert alert-danger">
+                    </asp:Label>
+                </div>
+             </div>
                 <div class="form-group">
                     <asp:Label ID="lblCodigo" runat="server" Text="Código:" 
                         CssClass="control-label col-sm-2" AssociatedControlID="txtCodigo"></asp:Label>
