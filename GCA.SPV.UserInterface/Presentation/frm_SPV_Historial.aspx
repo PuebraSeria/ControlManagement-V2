@@ -106,7 +106,7 @@
                         <asp:DropDownList ID="ddlControl" runat="server" ForeColor="Black" AutoPostBack="true" OnSelectedIndexChanged="ddlControl_SelectedIndexChanged">
                             <asp:ListItem Value="0">Seleccione</asp:ListItem>
                         </asp:DropDownList>
-                        <asp:Button ID="generarReporte" Text="Generar reporte" runat="server" ForeColor="White" BackColor="DimGray" OnClick="generarReporte_Click"></asp:Button>
+                        <asp:Button ID="generarReporte" Text="Generar reporte" runat="server" ForeColor="Black" CssClass="btn" OnClick="generarReporte_Click"></asp:Button>
                     </div>
                     <div class="panel-body" style="max-height:400px; overflow-y: scroll;">
                         <!-- Div con la línea de tiempo -->
