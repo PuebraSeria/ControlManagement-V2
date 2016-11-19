@@ -1,6 +1,9 @@
 ﻿'Importaciones necesarias
 Imports System.Web.Configuration
 Imports GCA.Business
+Imports System.IO
+Imports iTextSharp.text
+Imports iTextSharp.text.pdf
 
 Public Class frm_SPV_Historial
     Inherits System.Web.UI.Page
@@ -181,5 +184,162 @@ Public Class frm_SPV_Historial
     ''' <param name="e"></param>
     Protected Sub ddlControl_SelectedIndexChanged(sender As Object, e As EventArgs)
         Me.llenarLineaTiempo()
+    End Sub
+
+    Public Sub GenerarReporteDatosEntrega()
+        Dim oDoc As New iTextSharp.text.Document(PageSize.A4, 10, 10, 10, 10)
+        Dim pdfw As iTextSharp.text.pdf.PdfWriter
+        Dim cb As PdfContentByte
+        Dim fuente As iTextSharp.text.pdf.BaseFont
+        Dim NombreArchivo As String = "C:\Users\gollo\Documents\Documentos\UCR\Analisis\ProyectoVB\ControlManagement-V2\GCA.SPV.UserInterface\Reportes\Report" + Guid.NewGuid().ToString().Substring(0, 5) + ".pdf"
+        Try
+            pdfw = PdfWriter.GetInstance(oDoc, New FileStream(NombreArchivo,
+            FileMode.Create, FileAccess.Write, FileShare.None))
+            'Apertura del documento.
+            oDoc.Open()
+            cb = pdfw.DirectContent
+            'Agregamos una pagina.
+            oDoc.NewPage()
+            'Iniciamos el flujo de bytes.
+            cb.BeginText()
+            'Seteamos el color del texto a escribir.
+            cb.SetColorFill(iTextSharp.text.BaseColor.BLACK)
+
+            Dim pHeader1 As New Paragraph(New Phrase("Organismo de investigación judicial", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+            pHeader1.Alignment = Element.ALIGN_RIGHT
+            Dim pHeader2 As New Paragraph(New Phrase("Gestor de controles administrativos", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+            pHeader2.Alignment = Element.ALIGN_RIGHT
+
+            Dim pSalto As New Paragraph(" ")
+
+            Dim pReporte As New Paragraph(New Phrase("Reporte Historial cantidad reportes entregados de cada control por oficina: El presente  reporte proporciona" +
+                                            " la información correspondiente a la cantidad cada tipo de reporte entregado por oficina, con una proyección histórica" +
+                                            " tomando en consideración todos los reportes entregados.",
+                                                     FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+            pReporte.Alignment = Element.ALIGN_JUSTIFIED
+
+            Dim marcaAgua As Image = Image.GetInstance("C:\Users\gollo\Documents\Documentos\UCR\Analisis\ProyectoVB\ControlManagement-V2\GCA.SPV.UserInterface\Image\OIJ.jpg")
+            marcaAgua.SetAbsolutePosition(100, 300)
+            marcaAgua.ScalePercent(75)
+
+            Dim informationTable As New PdfPTable(2)
+            informationTable.WidthPercentage = 100
+
+            Dim clNameControl As New PdfPCell(New Phrase("Nombre del control", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD)))
+            clNameControl.BorderWidth = 0.5F
+
+            Dim clQuantity As New PdfPCell(New Phrase("Cantidad documentos entregados", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD)))
+            clQuantity.BorderWidth = 0.5F
+
+            informationTable.AddCell(clNameControl)
+            informationTable.AddCell(clQuantity)
+
+            Dim eb As New EntregaBusiness("Data Source=163.178.107.130;Initial Catalog=GCA;Persist Security Info=True;User ID=sqlserver;Password=saucr.12")
+            Dim ds As DataSet = eb.obtenerCantidadControlesEntregados
+
+            Dim dataRowCollection As DataRowCollection = ds.Tables(0).Rows
+            For Each currentRow As DataRow In dataRowCollection
+                Dim clNameControlTemp As New PdfPCell(New Phrase((currentRow(0).ToString()), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clNameControlTemp.BorderWidth = 0.5F
+
+                Dim clQuantityTemp As New PdfPCell(New Phrase((currentRow(1).ToString()), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clQuantityTemp.BorderWidth = 0.5F
+
+                informationTable.AddCell(clNameControlTemp)
+                informationTable.AddCell(clQuantityTemp)
+            Next
+
+            Dim informationTable2 As New PdfPTable(2)
+            informationTable2.WidthPercentage = 100
+
+            Dim clNombreOficina As New PdfPCell(New Phrase("Nombre Oficina", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD)))
+            clNombreOficina.BorderWidth = 0.5F
+
+            Dim clCantidadOficina As New PdfPCell(New Phrase("Cantidad documentos entregados", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.BOLD)))
+            clCantidadOficina.BorderWidth = 0.5F
+
+            informationTable2.AddCell(clNombreOficina)
+            informationTable2.AddCell(clCantidadOficina)
+
+            ds = eb.obtenerCantidadControlesEntregadosCadaOficina
+
+            dataRowCollection = ds.Tables(0).Rows
+            For Each currentRow As DataRow In dataRowCollection
+                Dim clNombreOficinaTemp As New PdfPCell(New Phrase(currentRow(0).ToString(), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clNombreOficinaTemp.BorderWidth = 0.5F
+
+                Dim clCantidadOficinaTemp As New PdfPCell(New Phrase(currentRow(1).ToString(), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clCantidadOficinaTemp.BorderWidth = 0.5F
+
+                informationTable2.AddCell(clNombreOficinaTemp)
+                informationTable2.AddCell(clCantidadOficinaTemp)
+            Next
+
+            Dim informationTable3 As New PdfPTable(3)
+            informationTable3.WidthPercentage = 100
+
+            informationTable3.AddCell(clNombreOficina)
+            informationTable3.AddCell(clNameControl)
+            informationTable3.AddCell(clCantidadOficina)
+
+            ds = eb.obtenerCantidadControlesEntregasCadaOficiaCadaDocControl
+
+            dataRowCollection = ds.Tables(0).Rows
+            For Each currentRow As DataRow In dataRowCollection
+                Dim clNombreOficinaTemp As New PdfPCell(New Phrase(currentRow(0).ToString(), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clNombreOficinaTemp.BorderWidth = 0.5F
+
+                Dim clDocControlTemp As New PdfPCell(New Phrase(currentRow(1).ToString(), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clDocControlTemp.BorderWidth = 0.5F
+
+                Dim clCantidadOficinaTemp As New PdfPCell(New Phrase(currentRow(2).ToString(), FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.NORMAL)))
+                clCantidadOficinaTemp.BorderWidth = 0.5F
+
+                informationTable3.AddCell(clNombreOficinaTemp)
+                informationTable3.AddCell(clDocControlTemp)
+                informationTable3.AddCell(clCantidadOficinaTemp)
+            Next
+
+
+            oDoc.Add(pHeader1)
+            oDoc.Add(pHeader2)
+            oDoc.Add(pSalto)
+            oDoc.Add(pReporte)
+            oDoc.Add(pSalto)
+            oDoc.Add(marcaAgua)
+            oDoc.Add(informationTable)
+            oDoc.Add(pSalto)
+            oDoc.Add(informationTable2)
+            oDoc.Add(pSalto)
+            oDoc.Add(informationTable3)
+            oDoc.Add(pSalto)
+            'Fin del flujo de bytes.
+            cb.EndText()
+            'Forzamos vaciamiento del buffer.
+            pdfw.Flush()
+            'Cerramos el documento.
+            oDoc.Close()
+        Catch ex As Exception
+            'Si hubo una excepcion y el archivo existe ...
+            If File.Exists(NombreArchivo) Then
+                'Cerramos el documento si esta abierto.
+                'Y asi desbloqueamos el archivo para su eliminacion.
+                If oDoc.IsOpen Then oDoc.Close()
+                '... lo eliminamos de disco.
+                File.Delete(NombreArchivo)
+            End If
+            Throw New Exception("Error al generar archivo PDF")
+        Finally
+            cb = Nothing
+            pdfw = Nothing
+            oDoc = Nothing
+        End Try
+
+        Process.Start(NombreArchivo)
+
+    End Sub
+
+    Protected Sub generarReporte_Click(sender As Object, e As EventArgs) Handles generarReporte.Click
+        GenerarReporteDatosEntrega()
     End Sub
 End Class
