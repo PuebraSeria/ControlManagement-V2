@@ -82,8 +82,8 @@
                 <li>
                     <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Ayuda</a>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
+               <li>
+                    <a href="http://localhost:51014/Presentation/frm_IDX_Index.aspx"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
                 </li>
             </ul>
         </div>
