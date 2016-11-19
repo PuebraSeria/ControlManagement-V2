@@ -5,13 +5,23 @@ Imports GCA.Domain
 
 Public Class frm_OFI_ManEnviarControl
     Inherits System.Web.UI.Page
+    Private codOficina As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        'Preguntamos si existe la oficina
+        If Session.Item("codigoOficina") Is Nothing Then
+            Me.codOficina = "1"
+        Else
+            Me.codOficina = CType(Session("codigoOficina"), String)
+        End If
 
         If Not Page.IsPostBack Then
             Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
             Dim oficinaB As New OficinaBusiness(conn)
-            Dim dsControles As DataSet = oficinaB.obtenerControlesOficina("1")
+
+
+            Dim dsControles As DataSet = oficinaB.obtenerControlesOficina(Me.codOficina)
             ddlControl.DataSource = dsControles
             ddlControl.DataTextField = "TC_Nombre_DocControl"
             ddlControl.DataValueField = "TC_Codigo_DocControl"
@@ -21,20 +31,6 @@ Public Class frm_OFI_ManEnviarControl
             ddlControl.SelectedIndex = 0
 
         End If
-
-
-
-        'Dim cookieDDL As HttpCookie = Request.Cookies("index")
-        'Dim cookie As HttpCookie = Request.Cookies("mensaje")
-
-        'If cookie IsNot Nothing Then
-        '    lblSelPeriodo.Text = Request.Cookies("mensaje").Value
-        'End If
-
-        'If cookieDDL IsNot Nothing Then
-        '    ddlControl.SelectedIndex = Int32.Parse(Request.Cookies("index").Value)
-        'End If
-
     End Sub
 
     <WebMethod>
@@ -42,14 +38,14 @@ Public Class frm_OFI_ManEnviarControl
         Dim codPeriodo As Integer
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim oficinaB As New OficinaBusiness(conn)
-        Dim dsControles As DataSet = oficinaB.obtenerControlesOficina("1")
+        Dim dsControles As DataSet = oficinaB.obtenerControlesOficina(Me.codOficina)
         Dim dataRowCollection As DataRowCollection = dsControles.Tables(0).Rows
         For Each currentRow As DataRow In dataRowCollection
             If (currentRow("TC_Codigo_DocControl").ToString() = ddlControl.SelectedValue) Then
                 codPeriodo = Int32.Parse(currentRow("TN_Periocidad_DocControl").ToString())
             End If
         Next
-        Dim fechaAsignacion As String = oficinaB.obtenerFechaAsignacionControl("1", ddlControl.SelectedValue)
+        Dim fechaAsignacion As String = oficinaB.obtenerFechaAsignacionControl(Me.codOficina, ddlControl.SelectedValue)
         Dim periodoB As PeriodoBusiness = New PeriodoBusiness(conn)
         Dim periodoD As Periodo = periodoB.obtenerPeriodoCodigo(codPeriodo)
         Dim cantDias As Integer = periodoD.Dias
@@ -86,14 +82,14 @@ Public Class frm_OFI_ManEnviarControl
         Dim codPeriodo As Integer
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
         Dim oficinaB As New OficinaBusiness(conn)
-        Dim dsControles As DataSet = oficinaB.obtenerControlesOficina("1")
+        Dim dsControles As DataSet = oficinaB.obtenerControlesOficina(Me.codOficina)
         Dim dataRowCollection As DataRowCollection = dsControles.Tables(0).Rows
         For Each currentRow As DataRow In dataRowCollection
             If (currentRow("TC_Codigo_DocControl").ToString() = ddlControl.SelectedValue) Then
                 codPeriodo = Int32.Parse(currentRow("TN_Periocidad_DocControl").ToString())
             End If
         Next
-        Dim fechaAsignacion As String = oficinaB.obtenerFechaAsignacionControl("1", ddlControl.SelectedValue)
+        Dim fechaAsignacion As String = oficinaB.obtenerFechaAsignacionControl(Me.codOficina, ddlControl.SelectedValue)
         Dim periodoB As PeriodoBusiness = New PeriodoBusiness(conn)
         Dim periodoD As Periodo = periodoB.obtenerPeriodoCodigo(codPeriodo)
         Dim cantDias As Integer = periodoD.Dias
@@ -138,11 +134,11 @@ Public Class frm_OFI_ManEnviarControl
                 Try
                     fileUpload.PostedFile.SaveAs(path &
                          fileUpload.FileName)
-                    Dim entrega As Entrega = New Entrega("1", ddlControl.SelectedValue, fileUpload.FileName, obtenerPeriodo())
+                    Dim entrega As Entrega = New Entrega(Me.codOficina, ddlControl.SelectedValue, fileUpload.FileName, obtenerPeriodo())
                     Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
                     Dim entregaB As EntregaBusiness = New EntregaBusiness(conn)
                     Dim oficinaB As OficinaBusiness = New OficinaBusiness(conn)
-                    oficinaB.ActualizarFechaOficinaAsignacion(obtenerNuevaFechaAsignacion(), "1", ddlControl.SelectedValue)
+                    oficinaB.ActualizarFechaOficinaAsignacion(obtenerNuevaFechaAsignacion(), Me.codOficina, ddlControl.SelectedValue)
                     If entregaB.crearEntrega(entrega) = 1 Then
                         lblNotification.Text = "Evidencia agregada"
                     Else
