@@ -5,33 +5,27 @@
     <link rel="stylesheet" href="../DESARROLLO/Simple-Animated-Timeline-Plugin-For-jQuery-Timelify/css/timelify.css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="menu" runat="server">
-        <!-- /. NAV TOP  -->
+    <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-
                 <li>
-                    <a href="frm_OFI_ConEstadoReportes.aspx"><i class="fa fa-desktop "></i>Estado de los controles</a>
+                    <a href="frm_OFI_ConEstadoReportes.aspx"><i class="fa fa-book" aria-hidden="true"></i> Estado de los controles</a>
                 </li>
-
                 <li>
-                    <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-table "></i>Enviar control</a>
+                    <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-upload" aria-hidden="true"></i> Enviar control</a>
                 </li>
                 <li class="active-link">
                     <a href="frm_OFI_Historial.aspx"><i class="fa fa-history"></i>Historial</a>
                 </li>
                 <li>
-                    <a href="blank.html"><i class="fa fa-edit "></i>Ayuda</a>
+                    <a href="blank.html"><i class="fa fa-question-circle" aria-hidden="true"></i> Ayuda</a>
                 </li>
-
-
                 <li>
-                    <a href="#"><i class="fa fa-qrcode "></i>Salir</a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
                 </li>
-
             </ul>
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
@@ -53,21 +47,8 @@
                     <!-- DIV contenedor línea de tiempo -->
                     <div class="panel-body" style="max-height:400px; overflow-y: scroll;">
                         <div class="timeline" id="divTimeLine" runat="server">
-  <%--                          <h2>2014</h2>
-                                <li class="timeline-item centered"> <!-- Centered block, positionned in the middle -->
-                                    <h3>Title</h3>
-                                    <hr>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, cupiditate dicta dignissimos dolorem doloribus ducimus eos error ex molestiae nobis odio odit optio placeat quasi repudiandae, unde velit voluptate voluptatem!</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab commodi consectetur cupiditate ea, eius excepturi expedita illum, incidunt ipsam iste modi obcaecati optio repellendus! Dolore dolores pariatur sint veniam voluptates!</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consequatur distinctio doloremque eos eum eveniet fuga molestiae mollitia nesciunt nisi nobis nostrum, odio omnis pariatur praesentium quibusdam sequi sint voluptates.</p>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam, aspernatur commodi consequuntur corporis dicta, distinctio enim eos expedita, id iste laborum maxime nesciunt quaerat sed temporibus veniam vero voluptatem.</p>
-                                    <p><a href="http://gamejolt.com/games/slender-the-cursed-forest/30950">Link</a></p>
-                                    <hr>
-                                    <time>Date</time>
-                                </li>
-                            </ul>--%>
                         </div><!-- Fin del div timeline -->
-                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upEstadoReportes">
+                        <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="UpdatePanel1">
                             <ProgressTemplate>
                                 <div class="form-group">
                                     <div class="text-center">
