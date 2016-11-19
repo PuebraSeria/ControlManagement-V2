@@ -8,12 +8,12 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->
-      <nav class="navbar-default navbar-side" role="navigation">
+    <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
            <ul class="nav" id="main-menu">
                <!-- Controles-->
                 <li>
-                    <a class="btn" data-toggle="collapse" data-target="#dtControles">Controles</a>
+                    <a class="btn" style="text-align:left" data-toggle="collapse" data-target="#dtControles"><i class="fa fa-book" aria-hidden="true"></i> Controles</a>
                     <ul id="dtControles" class="collapse nav" style="padding-top:0px">
                         <li>
                             <a href="frm_SPV_ConEstadoDeControles.aspx">Gráfico Estado de los Controles</a>
@@ -24,7 +24,7 @@
                         <li >
                             <a href="frm_SPV_CrearControl.aspx">Crear control</a>
                         </li>
-                        <li >
+                         <li >
                             <a href="frm_SPV_AdministrarControl.aspx">Gestionar Controles</a>
                         </li>
                          <li>
@@ -36,7 +36,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="btn" data-toggle="collapse" data-target="#dtJefeOficina">Jefe Oficina</a>
+                    <a class="btn" style="text-align:left" data-toggle="collapse" data-target="#dtJefeOficina"><i class="fa fa-user" aria-hidden="true"></i> Jefe Oficina</a>
                     <ul id="dtJefeOficina" class="collapse nav" style="padding-top:0px">
                         <li>
                             <a href="frm_SPV_CrearJefeOficina.aspx">Crear Jefe de Oficina</a>
@@ -47,7 +47,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="btn" data-toggle="collapse" data-target="#dtSupervisor">Supervisor</a>
+                    <a class="btn" style="text-align:left" data-toggle="collapse" data-target="#dtSupervisor"><i class="fa fa-user" aria-hidden="true"></i> Supervisor</a>
                     <ul id="dtSupervisor" class="collapse nav" style="padding-top:0px">
                         <li>
                             <a href="frm_SPV_CrearSupervisor.aspx">Crear Supervisor</a>
@@ -58,7 +58,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="btn" data-toggle="collapse" data-target="#dtOficina">Oficina</a>
+                    <a class="btn" style="text-align:left" data-toggle="collapse" data-target="#dtOficina"><i class="fa fa-university" aria-hidden="true"></i> Oficina</a>
                     <ul id="dtOficina" class="collapse nav" style="padding-top:0px">
                         <li>
                             <a href="frm_SPV_CrearOficina.aspx">Crear Oficina</a>
@@ -69,7 +69,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="btn" data-toggle="collapse" data-target="#dtPeriodo">Período</a>
+                    <a class="btn" style="text-align:left" data-toggle="collapse" data-target="#dtPeriodo"><i class="fa fa-clock-o" aria-hidden="true"></i> Período</a>
                     <ul id="dtPeriodo" class="collapse nav" style="padding-top:0px">
                         <li>
                             <a href="frm_SPV_CrearPeriodo.aspx">Crear Periodo</a>
@@ -80,13 +80,10 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="frm_SPV_ConGenerarReporte.aspx"><i class="fa fa-bar-chart-o"></i>Generar reportes</a>
+                    <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Ayuda</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-edit "></i>Ayuda</a>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-table "></i>Salir</a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
                 </li>
             </ul>
         </div>

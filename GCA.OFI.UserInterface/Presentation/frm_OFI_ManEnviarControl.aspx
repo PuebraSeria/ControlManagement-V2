@@ -12,24 +12,22 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li>
-                    <a href="frm_OFI_ConEstadoReportes.aspx"><i class="fa fa-desktop "></i>Estado de los controles</a>
-                </li>
-
-                <li class="active-link">
-                    <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-table "></i>Enviar control</a>
+                    <a href="frm_OFI_ConEstadoReportes.aspx"><i class="fa fa-book" aria-hidden="true"></i> Estado de los controles</a>
                 </li>
                 <li>
+                    <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-upload" aria-hidden="true"></i> Enviar control</a>
+                </li>
+                <li class="active-link">
                     <a href="frm_OFI_Historial.aspx"><i class="fa fa-history"></i>Historial</a>
                 </li>
                 <li>
-                    <a href="blank.html"><i class="fa fa-edit "></i>Ayuda</a>
+                    <a href="blank.html"><i class="fa fa-question-circle" aria-hidden="true"></i> Ayuda</a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-qrcode "></i>Salir</a>
+                    <a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i> Salir</a>
                 </li>
             </ul>
         </div>
-
     </nav>
     <!-- /. NAV SIDE  -->
 </asp:Content>
