@@ -77,6 +77,15 @@ Partial Public Class frm_SPV_Historial
     Protected WithEvents ddlControl As Global.System.Web.UI.WebControls.DropDownList
     
     '''<summary>
+    '''generarReporte control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents generarReporte As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
     '''divTimeLine control.
     '''</summary>
     '''<remarks>
