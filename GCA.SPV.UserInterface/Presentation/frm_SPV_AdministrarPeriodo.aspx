@@ -92,7 +92,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <asp:GridView ID="gridPeriodo" runat="server" HorizontalAlign ="Center" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
+                <asp:GridView ID="gridPeriodo" runat="server" HorizontalAlign ="Center" ShowHeaderWhenEmpty ="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None"
                      BorderWidth="1px" CellPadding="3" DataKeyNames="TN_Id_Periodo" OnRowCancelingEdit ="gridPeriodo_RowCancelingEdit" OnRowDataBound ="gridPeriodo_RowDataBound" 
                     OnRowDeleting ="gridPeriodo_RowDeleting"  OnRowEditing ="gridPeriodo_RowEditing" OnRowUpdating="gridPeriodo_RowUpdating" OnPageIndexChanging ="gridPeriodo_PageIndexChanging" >
                     <Columns>

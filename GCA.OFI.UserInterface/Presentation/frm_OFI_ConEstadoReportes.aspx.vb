@@ -17,18 +17,20 @@ Public Class frm_OFI_ConEstadoReportes
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Me.conexion = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
 
-        'Preguntamos si existe la oficina
-        If Session.Item("codigoOficina") Is Nothing Then
-            Me.codOficina = "1"
-        Else
-            Me.codOficina = CType(Session("codigoOficina"), String)
-        End If
-
         'Preguntamos si es la primera vez en ingresar
         If Not IsPostBack Then
+            Dim cod As String = Request.QueryString("cod")
+
+            If (Not String.IsNullOrEmpty(cod)) Then
+                Response.Cookies("cod").Value = cod
+            End If
+            Me.codOficina = Request.Cookies("cod").Value
             llenarDDLControl()
             llenarTabla()
+        Else
+            Me.codOficina = Request.Cookies("cod").Value
         End If
+
     End Sub
     '**************************************** Llenar combos ********************************
     ''' <summary>

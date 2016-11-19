@@ -91,6 +91,9 @@
     <!-- /. NAV SIDE  -->
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="Body" runat="server">
+    <script src="../DESARROLLO/JS/jquery-1.10.2.js"></script>
+    <script src="../DESARROLLO/JS/bootstrap.min.js"></script>
+    <script src="../DESARROLLO/JS/custom.js"></script>
     <script src="../DESARROLLO/highCharts/jquery.js"></script>
     <script src="../DESARROLLO/highCharts/highcharts.js"></script>
     <script src="../DESARROLLO/highCharts/exporting.js"></script>

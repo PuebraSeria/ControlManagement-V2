@@ -36,8 +36,7 @@ Public Class frm_IDX_Index
         If (jefeOficinaBusiness.existeJefeOficina(txtCodigo.Text, txtContrasenna.Text)) Then
             'Obtenemos la oficina
             Dim jefeOficina As JefeOficina = jefeOficinaBusiness.obtenerJefeOficinaCodigo(txtCodigo.Text)
-            Session.Add("codigoOficina", jefeOficina.Oficina().Codigo())
-            Response.Redirect("http://localhost:49338/Presentation/frm_OFI_ConEstadoReportes.aspx")
+            Response.Redirect("http://localhost:49338/Presentation/frm_OFI_ConEstadoReportes.aspx?cod=" + jefeOficina.Oficina().Codigo())
         End If
         If (supervisorBusiness.existeSupervisor(txtCodigo.Text, txtContrasenna.Text)) Then
             Response.Redirect("http://localhost:49327/Presentation/frm_SPV_ConEstadoDeControles.aspx")

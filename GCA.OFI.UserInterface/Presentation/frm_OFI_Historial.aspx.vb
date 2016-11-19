@@ -17,10 +17,9 @@ Public Class frm_OFI_Historial
         Me.conexion = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
 
         'Preguntamos si existe la oficina
-        If Session.Item("codigoOficina") Is Nothing Then
-            Me.codOficina = "1"
-        Else
-            Me.codOficina = CType(Session("codigoOficina"), String)
+        Dim cookie As HttpCookie = Request.Cookies("cod")
+        If cookie IsNot Nothing Then
+            Me.codOficina = Request.Cookies("cod").Value
         End If
 
         'Preguntamos si es la primera vez en ingresar

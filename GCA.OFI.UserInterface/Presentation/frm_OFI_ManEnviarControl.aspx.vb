@@ -10,11 +10,11 @@ Public Class frm_OFI_ManEnviarControl
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         'Preguntamos si existe la oficina
-        If Session.Item("codigoOficina") Is Nothing Then
-            Me.codOficina = "1"
-        Else
-            Me.codOficina = CType(Session("codigoOficina"), String)
+        Dim cookie As HttpCookie = Request.Cookies("cod")
+        If cookie IsNot Nothing Then
+            Me.codOficina = Request.Cookies("cod").Value
         End If
+
 
         If Not Page.IsPostBack Then
             Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
