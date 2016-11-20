@@ -15,13 +15,14 @@ Public Class frm_SPV_CrearControl
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
         Dim conn As String = WebConfigurationManager.ConnectionStrings("GCAConnectionString").ToString()
-        Dim periodo As New PeriodoBusiness(conn)
-        Dim dsPeriodo As DataSet = periodo.obtenerPeriodos()
-        ddlPeriocidad.DataSource = dsPeriodo
-        ddlPeriocidad.DataTextField = "TC_Nombre_Periodo"
-        ddlPeriocidad.DataValueField = "TN_Id_Periodo"
-        ddlPeriocidad.DataBind()
+
         If Not Page.IsPostBack Then
+            Dim periodo As New PeriodoBusiness(conn)
+            Dim dsPeriodo As DataSet = periodo.obtenerPeriodos()
+            ddlPeriocidad.DataSource = dsPeriodo
+            ddlPeriocidad.DataTextField = "TC_Nombre_Periodo"
+            ddlPeriocidad.DataValueField = "TN_Id_Periodo"
+            ddlPeriocidad.DataBind()
             divPorFechas.Visible = False
 
         End If
