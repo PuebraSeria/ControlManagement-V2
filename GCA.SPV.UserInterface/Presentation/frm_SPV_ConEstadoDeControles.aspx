@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="titulo" runat="server">
-    <h2>Estado de los Controles</h2>
+    <h2>Gráfico Estado de los Controles</h2>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="menu" runat="server">
     <!-- /. NAV TOP  -->

@@ -14,10 +14,10 @@
                 <li>
                     <a href="frm_OFI_ConEstadoReportes.aspx"><i class="fa fa-book" aria-hidden="true"></i> Estado de los controles</a>
                 </li>
-                <li>
+                <li class="active-link">
                     <a href="frm_OFI_ManEnviarControl.aspx"><i class="fa fa-upload" aria-hidden="true"></i> Enviar control</a>
                 </li>
-                <li class="active-link">
+                <li>
                     <a href="frm_OFI_Historial.aspx"><i class="fa fa-history"></i>Historial</a>
                 </li>
                 <li>
